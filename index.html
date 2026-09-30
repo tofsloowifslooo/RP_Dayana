@@ -3,925 +3,856 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Islam, Tradition & Identity in Kazakhstan</title>
+<title>PLS210 Research Proposal</title>
 
 <style>
 :root {
-    --background: #071A33;
-    --background2: #0B2444;
-    --text: #F4F1E8;
-    --muted: #B8C3D0;
-    --accent: #D9C49A;
-    --line: #36516F;
+  --background: #071A33;
+  --background2: #0B2444;
+  --text: #F4F1E8;
+  --muted: #B8C3D0;
+  --accent: #D9C49A;
+  --line: #36516F;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: var(--background) !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    color: var(--text);
-}
-
-.deck {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: var(--background);
+  background: var(--background) !important;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .slide {
-    position: absolute;
-    inset: 0;
-    padding: 8vh 10vw 13vh 10vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(30px);
-    transition:
-        opacity 0.45s ease,
-        transform 0.45s ease,
-        visibility 0.45s;
+  position: absolute;
+  inset: 0;
+  padding: 7vh 8vw 13vh;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(217,196,154,.07), transparent 25%),
+    linear-gradient(135deg, var(--background), var(--background2));
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(25px);
+  transition: opacity .45s ease, transform .45s ease;
+  overflow-y: auto;
 }
 
 .slide.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-}
-
-.slide::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(217,196,154,0.07),
-            transparent 28%
-        );
-    pointer-events: none;
-}
-
-.content {
-    position: relative;
-    max-width: 1050px;
-    z-index: 2;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
 .eyebrow {
-    color: var(--accent);
-    font-size: 0.9rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
+  color: var(--accent);
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+h1, h2 {
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0 0 1.5rem;
+  max-width: 1050px;
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    line-height: 1.05;
-    font-weight: 500;
-    margin: 0 0 25px;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
 }
 
 h2 {
-    font-size: clamp(2rem, 3.5vw, 3.5rem);
-    line-height: 1.1;
-    font-weight: 500;
-    margin: 0 0 28px;
+  font-size: clamp(2.2rem, 4.8vw, 4.5rem);
 }
 
 h3 {
-    font-size: 1.35rem;
-    color: var(--accent);
-    margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent);
 }
 
-p {
-    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
-    line-height: 1.65;
-    color: var(--muted);
-    max-width: 900px;
+p, li {
+  font-size: clamp(1rem, 1.45vw, 1.35rem);
+  line-height: 1.6;
+  max-width: 950px;
 }
 
-strong {
-    color: var(--text);
+.muted {
+  color: var(--muted);
 }
 
 .quote {
-    border-left: 2px solid var(--accent);
-    padding-left: 25px;
-    margin: 25px 0;
-    font-size: clamp(1.2rem, 2vw, 1.7rem);
-    line-height: 1.5;
-    color: var(--text);
-    max-width: 900px;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.4rem;
+  margin: 2rem 0;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  line-height: 1.45;
+  max-width: 900px;
 }
 
-.big-question {
-    font-size: clamp(1.8rem, 3.5vw, 3.3rem);
-    line-height: 1.25;
-    color: var(--text);
-    max-width: 1000px;
-}
-
-.small {
-    font-size: 0.95rem;
-    color: var(--muted);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 25px;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2rem;
+  max-width: 1100px;
 }
 
 .card {
-    border-top: 1px solid var(--line);
-    padding-top: 18px;
+  border: 1px solid var(--line);
+  padding: 1.4rem;
+  background: rgba(255,255,255,.025);
 }
 
 .card p {
-    font-size: 1.05rem;
-    line-height: 1.5;
+  font-size: 1rem;
 }
 
-.two-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 55px;
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  max-width: 1150px;
 }
 
-ul {
-    padding-left: 25px;
-    color: var(--muted);
+.flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin: 2rem 0;
+  max-width: 1150px;
 }
 
-li {
-    font-size: 1.15rem;
-    line-height: 1.55;
-    margin-bottom: 12px;
-}
-
-.reference-list {
-    max-height: 62vh;
-    overflow-y: auto;
-    padding-right: 20px;
-}
-
-.reference-list p {
-    font-size: 0.92rem;
-    line-height: 1.45;
-    margin: 0 0 15px;
-}
-
-.reference-list a {
-    color: var(--accent);
-    text-decoration: none;
-    word-break: break-word;
-}
-
-.method-flow {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-top: 35px;
-}
-
-.method-step {
-    border: 1px solid var(--line);
-    padding: 18px 22px;
-    min-width: 160px;
-    text-align: center;
-    color: var(--text);
+.flow-item {
+  border: 1px solid var(--line);
+  padding: .8rem 1rem;
+  background: rgba(255,255,255,.025);
 }
 
 .arrow {
-    color: var(--accent);
-    font-size: 1.5rem;
+  color: var(--accent);
+  font-size: 1.4rem;
 }
 
-.progress {
-    position: absolute;
-    bottom: 5.5vh;
-    left: 10vw;
-    right: 10vw;
-    height: 2px;
-    background: var(--line);
-    z-index: 10;
+.source {
+  color: var(--muted);
+  font-size: .85rem;
+  margin-top: 2rem;
 }
 
-.progress-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--accent);
-    transition: width 0.4s ease;
+.references-list {
+  font-size: 0.72rem;
+  line-height: 1.28;
+  max-height: 68vh;
+  overflow: hidden;
+  column-count: 1;
 }
 
-.slide-number {
-    position: absolute;
-    bottom: 7vh;
-    right: 10vw;
-    color: var(--muted);
-    font-size: 0.85rem;
-    z-index: 10;
+.references-list p {
+  margin: 0 0 0.48rem 0;
+}
+
+.references-list strong {
+  font-weight: 700;
+}
+
+#journey {
+  position: fixed;
+  left: 7vw;
+  right: 7vw;
+  bottom: 3.3vh;
+  z-index: 100;
+  display: flex;
+  gap: 5px;
+}
+
+.journey-item {
+  height: 3px;
+  flex: 1;
+  background: var(--line);
+  transition: background .3s ease;
+}
+
+.journey-item.active {
+  background: var(--accent);
+}
+
+#counter {
+  position: fixed;
+  right: 7vw;
+  bottom: 5.4vh;
+  color: var(--muted);
+  font-size: .8rem;
+  z-index: 100;
 }
 
 .nav {
-    position: absolute;
-    bottom: 7vh;
-    left: 10vw;
-    z-index: 10;
-    display: flex;
-    gap: 10px;
+  position: fixed;
+  right: 7vw;
+  bottom: 8vh;
+  z-index: 100;
+  display: flex;
+  gap: .5rem;
 }
 
 .nav button {
-    background: transparent;
-    border: 1px solid var(--line);
-    color: var(--text);
-    width: 42px;
-    height: 34px;
-    cursor: pointer;
-    font-family: Georgia, serif;
-    transition: 0.2s;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  background: rgba(7,26,51,.7);
+  color: var(--text);
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
 }
 
 .nav button:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-@media (max-width: 800px) {
-    .slide {
-        padding: 7vh 7vw 15vh;
-    }
+@media (max-width: 750px) {
+  .slide {
+    padding: 5vh 6vw 15vh;
+  }
 
-    .grid,
-    .two-column {
-        grid-template-columns: 1fr;
-    }
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
-    .card p,
-    li {
-        font-size: 1rem;
-    }
+  .nav {
+    right: 6vw;
+  }
 
-    .progress {
-        left: 7vw;
-        right: 7vw;
-    }
+  #counter {
+    right: 6vw;
+  }
 
-    .slide-number {
-        right: 7vw;
-    }
-
-    .nav {
-        left: 7vw;
-    }
+  #journey {
+    left: 6vw;
+    right: 6vw;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="deck">
-
 <!-- SLIDE 1 -->
 <section class="slide active">
-<div class="content">
-    <div class="eyebrow">01 — Hook</div>
+  <div class="eyebrow">HOOK</div>
+  <h1>When does a religious practice become a question of identity?</h1>
 
-    <h1>What does it mean to be a “good” Muslim?</h1>
+  <div class="quote">
+    Imagine a young Kazakh Muslim says <strong>“iftar”</strong> instead of
+    <strong>“ауызашар.”</strong>
+  </div>
 
-    <div class="quote">
-        Imagine a young Kazakh Muslim says <strong>“iftar”</strong>
-        instead of <strong>“ауызашар.”</strong>
-    </div>
+  <p>Someone might say:</p>
 
-    <p>Someone might say:</p>
+  <p><strong>“It’s just another word for breaking the fast.”</strong></p>
 
-    <div class="quote">
-        <strong>“It’s just another word for breaking the fast.”</strong>
-    </div>
+  <p>Someone else might think:</p>
 
-    <p>Someone else might think:</p>
+  <p><strong>“Why not use the Kazakh word? Isn’t that part of our tradition?”</strong></p>
 
-    <div class="quote">
-        <strong>“Why not use the Kazakh word? Isn’t that part of our tradition?”</strong>
-    </div>
-
-    <p class="big-question">
-        Is this simply a choice of words — or does it say something about
-        religious and cultural identity?
-    </p>
-</div>
+  <p>
+    Is this simply a choice of words — or does it say something about
+    religious and cultural identity?
+  </p>
 </section>
-
 
 <!-- SLIDE 2 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">02 — Context</div>
+  <div class="eyebrow">PUBLIC DEBATE</div>
 
-    <h2>A small difference can point to a larger question.</h2>
+  <h2>When religious practice becomes a question of national identity.</h2>
 
-    <p>
-        In Kazakhstan, questions about Islam can overlap with questions
-        about <strong>culture, tradition, and identity.</strong>
-    </p>
+  <p>
+    A public example comes from a 2024 speech by President Kassym-Jomart Tokayev
+    at the National Kurultai.
+  </p>
 
-    <div class="quote">
-        In 2024, President Kassym-Jomart Tokayev spoke publicly about
-        women wearing all-black clothing, connecting the issue to
-        perceptions of Kazakh tradition, religious influence, and
-        national identity.
-    </div>
+  <p>
+    Tokayev stated that dressing entirely in black “contradicts the worldview
+    of our people” and connected the issue to religious influence, spiritual
+    roots, and national identity.
+  </p>
 
-    <p class="small">
-        Tengrinews reported that Tokayev argued that dressing entirely
-        in black was contrary to the worldview of the Kazakh people and
-        warned against distancing from spiritual roots and national identity.
-    </p>
+  <p>
+    <strong>Tengrinews.kz</strong> reported the statement and discussed
+    reactions from religious and cultural experts.
+  </p>
 
-    <p class="small">
-        Source: Tengrinews.kz, 22 May 2024.
-    </p>
-</div>
+  <p class="muted">
+    This is not my own definition of what is traditional or Islamic. It is an
+    example of how religious practice can become publicly interpreted through
+    ideas of tradition, culture, and national identity.
+  </p>
+
+  <p class="source">
+    Source: Tengrinews.kz (2024), “Черные одеяния наш народ никогда не носил.
+    А женщины надевали платок только после сватовства — эксперты.”
+  </p>
 </section>
-
 
 <!-- SLIDE 3 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">03 — Research Question</div>
+  <div class="eyebrow">CONTEXT</div>
 
-    <h2>My research question</h2>
+  <h2>Islam in Kazakhstan is not experienced in only one way.</h2>
 
-    <p class="big-question">
-        How do young Kazakh Muslims account for aspects of Islamic
-        tradition that are publicly contested in Kazakhstan?
-    </p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Religious revival</h3>
+      <p>
+        Islam became more publicly visible after independence through
+        institutions, religious practice, and new forms of participation.
+      </p>
+    </div>
 
-    <p>
-        Here, <strong>“account”</strong> means how participants explain,
-        interpret, negotiate, or make sense of something that is contested.
-    </p>
-</div>
+    <div class="card">
+      <h3>Traditional Islam</h3>
+      <p>
+        The idea of “traditional Islam” is connected to local history,
+        Hanafi jurisprudence, Maturidi theology, and institutional authority.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>National identity</h3>
+      <p>
+        Religious practices can also be interpreted through ideas of
+        Kazakhness, culture, language, and national tradition.
+      </p>
+    </div>
+  </div>
 </section>
-
 
 <!-- SLIDE 4 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">04 — Epistemological Position</div>
+  <div class="eyebrow">RESEARCH QUESTION</div>
 
-    <h2>Interpretivism</h2>
+  <h2>
+    How do young Kazakh Muslims account for aspects of Islamic tradition
+    that are publicly contested in Kazakhstan?
+  </h2>
 
-    <p>
-        I am interested not only in <strong>what people do</strong>,
-        but in <strong>what those practices mean to them.</strong>
-    </p>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Meaning</h3>
-            <p>
-                People interpret their social and religious worlds
-                through meanings they have developed.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Context</h3>
-            <p>
-                Meanings are shaped by family, community, history,
-                religion, and public discourse.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Understanding</h3>
-            <p>
-                My aim is to understand participants’ interpretations
-                rather than impose one definition beforehand.
-            </p>
-        </div>
-    </div>
-</div>
+  <p class="muted">
+    Here, “account” means how people explain, interpret, negotiate, or
+    reinterpret something in their own words.
+  </p>
 </section>
-
 
 <!-- SLIDE 5 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">05 — Literature Review</div>
+  <div class="eyebrow">EPISTEMOLOGICAL POSITIONING</div>
 
-    <h2>Islam as everyday life</h2>
+  <h2>Interpretivism</h2>
 
-    <h3>Omelicheva (2011)</h3>
+  <p>
+    I approach this question from an <strong>interpretivist</strong>
+    perspective.
+  </p>
 
-    <p>
-        Omelicheva describes contemporary Islam in Kazakhstan as
-        increasingly individualized and connected to everyday life,
-        including personal ethics and ways of living.
-    </p>
+  <p>
+    Interpretivism focuses on how people create and understand meaning in
+    their social worlds.
+  </p>
 
-    <div class="quote">
-        This suggests that Islam cannot be understood only through
-        formal institutions or official religious organizations.
-    </div>
-</div>
+  <div class="quote">
+    Rather than asking whether one interpretation of Islamic tradition is
+    objectively correct, I ask how young Muslims themselves understand and
+    explain contested practices.
+  </div>
+
+  <p>
+    The aim is therefore to understand participants’ meanings rather than
+    impose a single definition of Islam or tradition.
+  </p>
 </section>
-
 
 <!-- SLIDE 6 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">06 — Literature Review</div>
+  <div class="eyebrow">LITERATURE REVIEW</div>
 
-    <h2>Islam in public life</h2>
+  <h2>Islam as everyday life</h2>
 
-    <h3>Malik (2019)</h3>
+  <h3>Omelicheva (2011)</h3>
 
-    <p>
-        Malik examines the public revival of Islam in Kazakhstan through
-        processes of institutionalisation.
-    </p>
+  <p>
+    Omelicheva shows that contemporary Islam in Kazakhstan can be understood
+    not only as institutional religion but also as an individualized way of
+    life and personal ethical orientation.
+  </p>
 
-    <p>
-        Religious revival can become visible through
-        <strong>mosque attendance, halal markets, moral dress,
-        youth participation, and other social practices.</strong>
-    </p>
-
-    <div class="quote">
-        Religion is therefore not simply a private matter.
-    </div>
-</div>
+  <p>
+    This is useful for my research because contested religious practices may
+    be meaningful to individuals even when they are not simply following an
+    institution.
+  </p>
 </section>
-
 
 <!-- SLIDE 7 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">07 — Literature Review</div>
+  <div class="eyebrow">LITERATURE REVIEW</div>
 
-    <h2>What counts as “Traditional Islam”?</h2>
+  <h2>Islam as public and social life</h2>
 
-    <h3>Kerim & Kurmanaliyev (2026)</h3>
+  <h3>Malik (2019)</h3>
 
-    <p>
-        The authors examine how “Traditional Islam” in Kazakhstan has
-        developed through history, state discourse, religious authority,
-        and contemporary debates.
-    </p>
+  <p>
+    Malik examines the public revival of Islam through institutionalisation,
+    including participation in mosques, youth engagement, halal markets,
+    and visible forms of religious practice.
+  </p>
 
-    <p>
-        The category connects <strong>Hanafi jurisprudence,
-        Maturidi theology, local customs, and institutional religious
-        authority.</strong>
-    </p>
-
-    <div class="quote">
-        This raises a question: who gets to define what counts as
-        authentic or traditional?
-    </div>
-</div>
+  <p>
+    This suggests that religion cannot always be treated as purely private:
+    religious meanings can become visible and socially negotiated.
+  </p>
 </section>
-
 
 <!-- SLIDE 8 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">08 — Literature Review</div>
+  <div class="eyebrow">LITERATURE REVIEW</div>
 
-    <h2>Islam and Kazakh identity</h2>
+  <h2>Who defines “traditional Islam”?</h2>
 
-    <h3>Sikhimbayeva & Sadvokassova (2025)</h3>
+  <h3>Kerim &amp; Kurmanaliyev (2026)</h3>
 
-    <p>
-        Their research examines the relationship between Islam and
-        ethnonational identity in post-Soviet Kazakhstan.
-    </p>
+  <p>
+    The authors examine “Traditional Islam” as a historically formed and
+    institutionally mediated category in Kazakhstan.
+  </p>
 
-    <p>
-        They discuss tensions between certain forms of Islamic practice
-        and ideas of <strong>Kazakhness</strong>, including debates
-        around local customs and visible religious practices.
-    </p>
+  <p>
+    Their discussion connects it with Hanafi jurisprudence, Maturidi
+    theology, local customs, historical development, and state discourse.
+  </p>
 
-    <div class="quote">
-        Religious practice can therefore become connected to
-        questions of cultural belonging.
-    </div>
-</div>
+  <p class="muted">
+    This helps me treat “traditional Islam” as something that can itself
+    become an object of interpretation and contestation.
+  </p>
 </section>
-
 
 <!-- SLIDE 9 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">09 — Literature Synthesis</div>
+  <div class="eyebrow">LITERATURE REVIEW</div>
 
-    <h2>What does the literature tell us?</h2>
+  <h2>Islam and Kazakh identity</h2>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Everyday Islam</h3>
-            <p>
-                Islam can be experienced through everyday values,
-                practices, and personal choices.
-            </p>
-        </div>
+  <h3>Sikhimbayeva &amp; Sadvokassova (2025)</h3>
 
-        <div class="card">
-            <h3>Public Religion</h3>
-            <p>
-                Religious revival also has visible social and
-                institutional dimensions.
-            </p>
-        </div>
+  <p>
+    Their research examines the relationship between Islam and
+    ethnonationalism in post-Soviet Kazakhstan.
+  </p>
 
-        <div class="card">
-            <h3>Identity & Authority</h3>
-            <p>
-                Questions of religious authenticity can overlap with
-                national identity and institutional authority.
-            </p>
-        </div>
-    </div>
+  <p>
+    They discuss tensions between visible or scriptural forms of piety and
+    ideas of Kazakh national identity, including situations where religious
+    practices may be interpreted as “Arabization.”
+  </p>
 
-    <p>
-        But these perspectives leave room for a more
-        <strong>micro-level question:</strong>
-        how do young Muslims themselves make sense of these tensions?
-    </p>
-</div>
+  <p>
+    This connects directly to my interest in how young Muslims explain
+    practices that become publicly contested.
+  </p>
 </section>
-
 
 <!-- SLIDE 10 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">10 — Research Gap</div>
+  <div class="eyebrow">LITERATURE SYNTHESIS</div>
 
-    <h2>What is missing?</h2>
+  <h2>What does the literature already tell us?</h2>
 
-    <p>
-        Existing research provides substantial analysis of
-        <strong>state regulation, securitisation, religious authority,
-        national identity, and youth religiosity.</strong>
-    </p>
-
-    <div class="quote">
-        What is less developed is the micro-level question of how young
-        Kazakh Muslims themselves interpret and explain contested aspects
-        of religious tradition.
+  <div class="card-grid">
+    <div class="card">
+      <h3>Omelicheva</h3>
+      <p>Islam as personal and everyday meaning.</p>
     </div>
 
-    <p>
-        My study therefore shifts the focus from
-        <strong>how contestation is structured</strong>
-        to <strong>how it is experienced and interpreted.</strong>
-    </p>
-</div>
-</section>
+    <div class="card">
+      <h3>Malik</h3>
+      <p>Islam as visible public and social life.</p>
+    </div>
 
+    <div class="card">
+      <h3>Kerim &amp; Kurmanaliyev</h3>
+      <p>Traditional Islam as historically and institutionally constructed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sikhimbayeva &amp; Sadvokassova</h3>
+      <p>Islamic practice and Kazakh national identity can intersect.</p>
+    </div>
+  </div>
+</section>
 
 <!-- SLIDE 11 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">11 — Analytical Framework</div>
+  <div class="eyebrow">RESEARCH GAP</div>
 
-    <h2>How will I interpret participants’ accounts?</h2>
+  <h2>What is less developed?</h2>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Meaning-making</h3>
-            <p>
-                How participants explain what religious practices
-                mean to them.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Religious authority</h3>
-            <p>
-                Whose interpretations participants recognise as
-                legitimate or convincing.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Boundary-making</h3>
-            <p>
-                How participants distinguish between practices,
-                identities, and understandings of Islam.
-            </p>
-        </div>
+  <div class="two-col">
+    <div>
+      <h3>Existing research</h3>
+      <p>
+        Institutions, regulation, religious authority, national identity,
+        securitisation, and broader patterns of youth religiosity.
+      </p>
     </div>
 
-    <p class="small">
-        These are sensitizing concepts, not categories that I will
-        impose on participants in advance.
-    </p>
-</div>
-</section>
+    <div>
+      <h3>My focus</h3>
+      <p>
+        How young Kazakh Muslims themselves interpret and explain contested
+        aspects of religious tradition.
+      </p>
+    </div>
+  </div>
 
+  <div class="quote">
+    My study shifts the focus from how contestation is structured publicly
+    to how it is experienced and interpreted by young Muslims themselves.
+  </div>
+</section>
 
 <!-- SLIDE 12 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">12 — Positionality</div>
+  <div class="eyebrow">ANALYTICAL FRAMEWORK</div>
 
-    <h2>I am not an external observer.</h2>
+  <h2>How will I interpret participants’ accounts?</h2>
 
-    <p>
-        I am Kazakh, and I was raised in a Muslim family.
-        For me, Islam is familiar primarily as a
-        <strong>family tradition and cultural background.</strong>
-    </p>
+  <p>
+    I use three sensitising concepts rather than fixed categories.
+  </p>
 
-    <p>
-        This gives me familiarity with the cultural and religious
-        context I am studying, but it also means I bring assumptions
-        and experiences into the research.
-    </p>
-
-    <div class="quote">
-        Rather than pretending to be completely detached, I need to
-        remain reflexive about how my position shapes what I notice
-        and how I interpret participants’ accounts.
+  <div class="card-grid">
+    <div class="card">
+      <h3>Meaning-making</h3>
+      <p>
+        How participants explain what a religious practice means to them.
+      </p>
     </div>
-</div>
-</section>
 
+    <div class="card">
+      <h3>Religious authority</h3>
+      <p>
+        How participants refer to scholars, institutions, family, texts,
+        community, or personal experience when explaining tradition.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Boundary-making</h3>
+      <p>
+        How participants distinguish between practices they see as
+        acceptable, traditional, religious, cultural, or contested.
+      </p>
+    </div>
+  </div>
+
+  <p class="muted">
+    These concepts guide what I notice, but participants remain free to
+    describe contestation in their own terms.
+  </p>
+</section>
 
 <!-- SLIDE 13 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">13 — Method</div>
+  <div class="eyebrow">POSITIONALITY</div>
 
-    <h2>How would I study this?</h2>
+  <h2>I am not a completely objective outsider.</h2>
 
-    <p>
-        A qualitative, interpretivist approach using
-        <strong>semi-structured interviews</strong> with young
-        Kazakh Muslims.
-    </p>
+  <p>
+    I am Kazakh, and I was raised in a Muslim family.
+  </p>
 
-    <div class="method-flow">
-        <div class="method-step">Recruit participants</div>
-        <div class="arrow">→</div>
-        <div class="method-step">Semi-structured interviews</div>
-        <div class="arrow">→</div>
-        <div class="method-step">Participant accounts</div>
-        <div class="arrow">→</div>
-        <div class="method-step">Interpretive analysis</div>
-    </div>
+  <p>
+    For me, Islam is familiar primarily as a family tradition and cultural
+    background. This means I already have some familiarity with the cultural
+    and religious context I am studying.
+  </p>
 
-    <p class="small">
-        The interviews would allow participants to identify what they
-        themselves consider contested, rather than beginning with a
-        fixed definition of religious contestation.
-    </p>
-</div>
+  <p>
+    At the same time, this background can shape what I notice, what I take
+    for granted, and how I interpret participants’ accounts.
+  </p>
+
+  <div class="quote">
+    I therefore cannot approach the research as a completely objective
+    outsider. I need to remain reflexive about how my own position shapes
+    the research process and interpretation.
+  </div>
 </section>
-
 
 <!-- SLIDE 14 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">14 — Contribution</div>
+  <div class="eyebrow">METHOD</div>
 
-    <h2>What can this study contribute?</h2>
+  <h2>From interpretation to interviews</h2>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Empirical</h3>
-            <p>
-                Brings young Muslims’ own accounts into the study of
-                religious contestation in Kazakhstan.
-            </p>
-        </div>
+  <div class="flow">
+    <div class="flow-item">Interpretivism</div>
+    <div class="arrow">→</div>
+    <div class="flow-item">Qualitative approach</div>
+    <div class="arrow">→</div>
+    <div class="flow-item">Semi-structured interviews</div>
+    <div class="arrow">→</div>
+    <div class="flow-item">Participant accounts</div>
+    <div class="arrow">→</div>
+    <div class="flow-item">Interpretive analysis</div>
+  </div>
 
-        <div class="card">
-            <h3>Analytical</h3>
-            <p>
-                Connects everyday meaning-making with questions of
-                religious authority and identity.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Reflexive</h3>
-            <p>
-                Makes the researcher’s cultural position part of the
-                methodological discussion.
-            </p>
-        </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Participants</h3>
+      <p>
+        I would purposively recruit young Kazakh Muslims who can speak about
+        their own experiences and understandings of religious tradition.
+      </p>
     </div>
-</div>
-</section>
 
+    <div class="card">
+      <h3>Interviews</h3>
+      <p>
+        Semi-structured, open-ended questions would give participants space
+        to explain their own meanings rather than choose from predetermined
+        answers.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Analysis</h3>
+      <p>
+        I would interpret recurring meanings, explanations, and distinctions
+        in participants’ accounts while remaining reflexive about my own
+        position.
+      </p>
+    </div>
+  </div>
+
+  <p class="muted">
+    I will allow participants to identify what they themselves experience
+    as contested, rather than imposing a fixed definition of contestation
+    in advance.
+  </p>
+</section>
 
 <!-- SLIDE 15 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">15 — AI Transparency</div>
+  <div class="eyebrow">CONTRIBUTION</div>
 
-    <h2>How I worked with AI</h2>
+  <h2>What can this study add?</h2>
 
-    <div class="quote">
-        I used AI as a thinking partner.
-    </div>
+  <p>
+    The study can contribute a micro-level perspective to research that has
+    often focused on institutions, public discourse, religious authority,
+    and national identity.
+  </p>
 
-    <p>
-        I asked back-and-forth questions to understand the topic more
-        deeply, and AI also helped me build and structure the HTML page.
-    </p>
+  <p>
+    By focusing on young Muslims’ own accounts, I can examine how people
+    navigate competing ideas of religion, tradition, culture, and identity
+    in their everyday lives.
+  </p>
 
-    <p>
-        I checked the sources and remain responsible for the concepts
-        and arguments I present.
-    </p>
-</div>
+  <div class="quote">
+    The goal is not to decide which interpretation of tradition is correct,
+    but to understand how people make sense of disagreement around it.
+  </div>
 </section>
-
 
 <!-- SLIDE 16 -->
 <section class="slide">
-<div class="content">
-    <div class="eyebrow">16 — References</div>
+  <div class="eyebrow">AI TRANSPARENCY</div>
 
-    <h2>References</h2>
+  <h2>How I worked with AI</h2>
 
-    <div class="reference-list">
-
-        <p>
-            <strong>Bektenova, M., Seitakhmetova, N., Zhandossova, S., & Toktarbekova, L.</strong>
-            (2025). Formation of Islamic identity in Kazakhstan and the Central Asian region
-            in conditions of religious revival.
-            <em>European Journal of Science and Theology, 21</em>(4), 145–174.
-        </p>
-
-        <p>
-            <strong>Kalybekova, L., Yerzhan, K., Adilbayev, A., Yessimkulov, Y., & Adilbayeva, S.</strong>
-            (2025). Traditional Islamic view on religion and state relations:
-            The case of Kazakhstan.
-            <em>Journal of Islamic Thought and Civilization, 15</em>(2), 157–174.
-            <br>
-            <a href="https://doi.org/10.32350/jitc.152.09" target="_blank">
-                https://doi.org/10.32350/jitc.152.09
-            </a>
-        </p>
-
-        <p>
-            <strong>Kerim, S., & Kurmanaliyev, M.</strong>
-            (2026). Traditional Islam in Kazakhstan: Historical formation,
-            state discourse, and contemporary challenges.
-            <em>Frontiers in Sociology, 11</em>, Article 1786903.
-            <br>
-            <a href="https://doi.org/10.3389/fsoc.2026.1786903" target="_blank">
-                https://doi.org/10.3389/fsoc.2026.1786903
-            </a>
-        </p>
-
-        <p>
-            <strong>Malik, B. A.</strong>
-            (2019). Islam in post-Soviet Kazakhstan: Experiencing public revival
-            of Islam through institutionalisation.
-            <em>Asian Journal of Middle Eastern and Islamic Studies, 13</em>(3), 351–369.
-            <br>
-            <a href="https://doi.org/10.1080/25765949.2019.1630576" target="_blank">
-                https://doi.org/10.1080/25765949.2019.1630576
-            </a>
-        </p>
-
-        <p>
-            <strong>Omelicheva, M. Y.</strong>
-            (2011). Islam in Kazakhstan: A survey of contemporary trends and
-            sources of securitization.
-            <em>Central Asian Survey, 30</em>(2), 243–256.
-            <br>
-            <a href="https://doi.org/10.1080/02634937.2011.567069" target="_blank">
-                https://doi.org/10.1080/02634937.2011.567069
-            </a>
-        </p>
-
-        <p>
-            <strong>Sikhimbayeva, D., & Sadvokassova, A.</strong>
-            (2025). Re-defining Kazakh national identity: Interplay of Islam and
-            ethnonationalism in post-Soviet nation-building in Kazakhstan.
-            <em>Central Asian Survey</em>. Advance online publication.
-            <br>
-            <a href="https://doi.org/10.1080/02634937.2025.2589221" target="_blank">
-                https://doi.org/10.1080/02634937.2025.2589221
-            </a>
-        </p>
-
-        <p>
-            <strong>Zakhaya, A., Tyshkhan, K., & Shamakhay, S.</strong>
-            (2024). The problem of the traditional view of Islam in Kazakhstan.
-            <em>Journal of Spirituality in Mental Health, 26</em>(1), 1–11.
-            <br>
-            <a href="https://doi.org/10.1080/19349637.2022.2132896" target="_blank">
-                https://doi.org/10.1080/19349637.2022.2132896
-            </a>
-        </p>
-
-        <p>
-            <strong>Tengrinews.kz.</strong>
-            (2024, May 22). Черные одеяния наш народ никогда не носил.
-            А женщины надевали платок только после сватовства — эксперты.
-            <br>
-            <a href="https://tengrinews.kz/article/chernyie-odeyaniya-nash-narod-ne-nosil-jenschinyi-nadevali-2395/"
-               target="_blank">
-                https://tengrinews.kz/article/chernyie-odeyaniya-nash-narod-ne-nosil-jenschinyi-nadevali-2395/
-            </a>
-        </p>
-
+  <div class="card-grid">
+    <div class="card">
+      <h3>Understanding</h3>
+      <p>
+        I used AI as a thinking partner to understand the topic more deeply
+        through back-and-forth questions.
+      </p>
     </div>
-</div>
+
+    <div class="card">
+      <h3>Coding</h3>
+      <p>
+        AI helped me build and structure the HTML page for the research
+        proposal.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Responsibility</h3>
+      <p>
+        I checked the sources and remain responsible for the concepts and
+        arguments I present.
+      </p>
+    </div>
+  </div>
+
+  <div class="quote">
+    I used AI to help me think through the research, not to replace my own
+    understanding.
+  </div>
 </section>
 
+<!-- SLIDE 17 -->
+<section class="slide">
+  <div class="eyebrow">REFERENCES</div>
+  <h2>References</h2>
 
-<!-- NAVIGATION -->
+  <div class="references-list">
+
+    <p>
+      <strong>Sikhimbayeva, D., &amp; Sadvokassova, A.</strong> (2025).
+      Re-defining Kazakh national identity: Interplay of Islam and
+      ethnonationalism in post-Soviet nation-building in Kazakhstan.
+      <em>Central Asian Survey</em>. Advance online publication.
+      https://doi.org/10.1080/02634937.2025.2589221
+    </p>
+
+    <p>
+      <strong>Kerim, S., &amp; Kurmanaliyev, M.</strong> (2026).
+      Traditional Islam in Kazakhstan: Historical formation, state discourse,
+      and contemporary challenges.
+      <em>Frontiers in Sociology, 11</em>, Article 1786903.
+      https://doi.org/10.3389/fsoc.2026.1786903
+    </p>
+
+    <p>
+      <strong>Bektenova, M., Seitakhmetova, N., Zhandossova, S., &amp;
+      Toktarbekova, L.</strong> (2025).
+      Formation of Islamic identity in Kazakhstan and the Central Asian region
+      in conditions of religious revival.
+      <em>European Journal of Science and Theology, 21</em>(4), 145–174.
+    </p>
+
+    <p>
+      <strong>Omelicheva, M. Y.</strong> (2011).
+      Islam in Kazakhstan: A survey of contemporary trends and sources of
+      securitization.
+      <em>Central Asian Survey, 30</em>(2), 243–256.
+      https://doi.org/10.1080/02634937.2011.567069
+    </p>
+
+    <p>
+      <strong>Malik, B. A.</strong> (2019).
+      Islam in post-Soviet Kazakhstan: Experiencing public revival of Islam
+      through institutionalisation.
+      <em>Asian Journal of Middle Eastern and Islamic Studies, 13</em>(3),
+      351–369.
+      https://doi.org/10.1080/25765949.2019.1630576
+    </p>
+
+    <p>
+      <strong>Zakhaya, A., Tyshkhan, K., &amp; Shamakhay, S.</strong> (2024).
+      The problem of the traditional view of Islam in Kazakhstan.
+      <em>Journal of Spirituality in Mental Health, 26</em>(1), 1–11.
+      https://doi.org/10.1080/19349637.2022.2132896
+    </p>
+
+    <p>
+      <strong>Kalybekova, L., Yerzhan, K., Adilbayev, A., Yessimkulov, Y.,
+      &amp; Adilbayeva, S.</strong> (2025).
+      Traditional Islamic view on religion and state relations: The case of
+      Kazakhstan.
+      <em>Journal of Islamic Thought and Civilization, 15</em>(2), 157–174.
+      https://doi.org/10.32350/jitc.152.09
+    </p>
+
+    <p>
+      <strong>Tengrinews.kz.</strong> (2024, May 22).
+      Черные одеяния наш народ никогда не носил. А женщины надевали платок
+      только после сватовства — эксперты.
+      https://tengrinews.kz/article/chernyie-odeyaniya-nash-narod-ne-nosil-jenschinyi-nadevali-2395/
+    </p>
+
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<div id="journey"></div>
+<div id="counter"></div>
+
 <div class="nav">
-    <button onclick="previousSlide()">←</button>
-    <button onclick="nextSlide()">→</button>
+  <button id="prev">←</button>
+  <button id="next">→</button>
 </div>
-
-<div class="progress">
-    <div class="progress-fill" id="progressFill"></div>
-</div>
-
-<div class="slide-number" id="slideNumber">
-    01 / 16
-</div>
-
-</div>
-
 
 <script>
-const slides = document.querySelectorAll(".slide");
-const progressFill = document.getElementById("progressFill");
-const slideNumber = document.getElementById("slideNumber");
+const slides = [...document.querySelectorAll(".slide")];
+const journey = document.getElementById("journey");
+const counter = document.getElementById("counter");
 
 let current = 0;
 
-function showSlide(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-
-    slides[current].classList.remove("active");
-    current = index;
-    slides[current].classList.add("active");
-
-    const progress = ((current + 1) / slides.length) * 100;
-    progressFill.style.width = progress + "%";
-
-    slideNumber.textContent =
-        String(current + 1).padStart(2, "0") +
-        " / " +
-        String(slides.length).padStart(2, "0");
-}
-
-function nextSlide() {
-    showSlide(current + 1);
-}
-
-function previousSlide() {
-    showSlide(current - 1);
-}
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowRight" || event.key === " ") {
-        nextSlide();
-    }
-
-    if (event.key === "ArrowLeft") {
-        previousSlide();
-    }
+slides.forEach((_, i) => {
+  const item = document.createElement("div");
+  item.className = "journey-item";
+  item.addEventListener("click", () => goTo(i));
+  journey.appendChild(item);
 });
 
-showSlide(0);
+const journeyItems = [...document.querySelectorAll(".journey-item")];
+
+function goTo(index) {
+  if (index < 0) index = slides.length - 1;
+  if (index >= slides.length) index = 0;
+
+  slides[current].classList.remove("active");
+  journeyItems[current].classList.remove("active");
+
+  current = index;
+
+  slides[current].classList.add("active");
+  journeyItems[current].classList.add("active");
+
+  counter.textContent = `${current + 1} / ${slides.length}`;
+}
+
+document.getElementById("prev").addEventListener("click", () => {
+  goTo(current - 1);
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  goTo(current + 1);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") {
+    e.preventDefault();
+    goTo(current + 1);
+  }
+
+  if (e.key === "ArrowLeft") {
+    e.preventDefault();
+    goTo(current - 1);
+  }
+});
+
+goTo(0);
 </script>
 
 </body>
