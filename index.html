@@ -1,13 +1,1314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Research Proposal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>What Does It Mean to Be a “Good” Muslim?</title>
+
+  <style>
+    /* =========================
+       GENERAL
+    ========================= */
+
+    @font-face {
+      font-family: "Bookerly";
+      src: url("fonts/Bookerly.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f4ee;
+      color: #24221f;
+      font-family: "Bookerly", Georgia, serif;
+      line-height: 1.65;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 9vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid #ddd6ca;
+      position: relative;
+    }
+
+    .content {
+      max-width: 1050px;
+      margin: auto;
+      width: 100%;
+    }
+
+    /* =========================
+       TYPOGRAPHY
+    ========================= */
+
+    .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #756c61;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.98;
+      font-weight: 400;
+      margin: 0 0 30px;
+      max-width: 1000px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      font-weight: 400;
+      margin: 0 0 35px;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 850px;
+    }
+
+    .large {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.4;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: #70695f;
+    }
+
+    .accent {
+      font-style: italic;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(247, 244, 238, 0.94);
+      border-bottom: 1px solid #ddd6ca;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      color: #5e574f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5e574f;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a:hover {
+      color: #171513;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      background: #eee9df;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.35rem;
+      max-width: 700px;
+      color: #5d574f;
+    }
+
+    .scroll-note {
+      margin-top: 70px;
+      font-size: 0.9rem;
+      color: #756c61;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .card {
+      border: 1px solid #d8d0c4;
+      padding: 25px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       QUESTION
+    ========================= */
+
+    .research-question {
+      border-left: 4px solid #74695c;
+      padding: 25px 35px;
+      margin: 30px 0;
+      background: #eee9df;
+    }
+
+    .research-question p {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* =========================
+       TABLE
+    ========================= */
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      font-size: 1.05rem;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #d7d0c5;
+      padding: 18px 15px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: normal;
+      color: #625b52;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================
+       FRAMEWORK
+    ========================= */
+
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .framework-item {
+      padding: 30px;
+      background: #eee9df;
+      min-height: 220px;
+    }
+
+    .framework-number {
+      font-size: 0.85rem;
+      color: #777066;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FLOW
+    ========================= */
+
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 45px;
+    }
+
+    .flow-item {
+      padding: 15px 20px;
+      border: 1px solid #bdb4a7;
+      background: #fdfbf7;
+    }
+
+    .arrow {
+      font-size: 1.4rem;
+      color: #777066;
+    }
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote {
+      margin: 40px 0;
+      padding: 30px 0;
+      border-top: 1px solid #cfc7ba;
+      border-bottom: 1px solid #cfc7ba;
+      font-size: 1.7rem;
+      font-style: italic;
+      max-width: 850px;
+    }
+
+    /* =========================
+       SOURCES
+    ========================= */
+
+    .sources {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #d8d0c4;
+    }
+
+    .sources p {
+      font-size: 0.9rem;
+      color: #70695f;
+      margin: 5px 0;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 60px 9vw;
+      background: #eee9df;
+      color: #625b52;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      section {
+        padding: 90px 7vw;
+      }
+
+      nav {
+        padding: 12px 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .cards,
+      .framework {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 12px 8px;
+      }
+    }
+  </style>
 </head>
+
+
 <body>
-    <h1>My Research Proposal</h1>
-    <p>PLS210 Research Methods</p>
-    
-    <h2>Research Question</h2>
-    <p>My research question will go here.</p>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+    <div class="nav-title">
+      Research Proposal · PLS210
+    </div>
+
+    <div class="nav-links">
+      <a href="#hook">Hook</a>
+      <a href="#question">RQ</a>
+      <a href="#literature">Literature</a>
+      <a href="#gap">Gap</a>
+      <a href="#framework">Framework</a>
+      <a href="#method">Method</a>
+      <a href="#reflection">Reflection</a>
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       1. HOOK
+  ========================= -->
+
+  <section class="hero" id="hook">
+    <div class="content">
+
+      <div class="eyebrow">Research Proposal · PLS210</div>
+
+      <h1>
+        What does it mean to be a
+        <span class="accent">“good” Muslim?</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Imagine someone tells you:
+        <br><br>
+        <strong>“This is a religious practice, but it is not really Kazakh.”</strong>
+      </p>
+
+      <p>
+        Take a few seconds.
+        Don't decide whether the statement is right or wrong.
+        Instead, ask:
+      </p>
+
+      <p class="large">
+        <em>Who gets to decide what counts as both Islamic and Kazakh?</em>
+      </p>
+
+      <div class="scroll-note">
+        ↓ Scroll to begin
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       2. RESEARCH QUESTION
+  ========================= -->
+
+  <section id="question">
+    <div class="content">
+
+      <div class="eyebrow">01 · Research Question</div>
+
+      <h2>
+        The question
+      </h2>
+
+      <div class="research-question">
+        <p>
+          How do young Kazakh Muslims account for aspects of Islamic tradition that are publicly contested in Kazakhstan?
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Young Kazakh Muslims</h3>
+          <p>
+            The people whose interpretations and experiences are at the centre of the study.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>“Account for”</h3>
+          <p>
+            To explain, interpret, negotiate, justify, reinterpret, or otherwise make something intelligible.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>“Publicly contested”</h3>
+          <p>
+            Religious practices or interpretations that are questioned, disputed, or debated in social contexts.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       3. OMELICHEVA
+  ========================= -->
+
+  <section id="literature">
+    <div class="content">
+
+      <div class="eyebrow">02 · Starting Point</div>
+
+      <h2>
+        Islam as a “way of life”
+      </h2>
+
+      <p class="large">
+        Islamic revival is not necessarily only about joining religious institutions.
+      </p>
+
+      <p>
+        Omelicheva's analysis points toward the
+        <strong>individualization and intimization of Islam</strong>:
+        religious ideas can become part of personal ethics,
+        everyday choices, and understandings of how to live.
+      </p>
+
+      <div class="quote">
+        If Islam can become part of everyday moral life,
+        then religious meaning is also something people actively interpret.
+      </div>
+
+      <div class="sources">
+        <p>
+          Omelicheva, M. Y. (2011).
+          <em>Islam in Kazakhstan: A survey of contemporary trends and sources of securitization.</em>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       4. MALIK
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">03 · Public Religion</div>
+
+      <h2>
+        Individualized ≠ private
+      </h2>
+
+      <p>
+        Personal religious practice can become socially visible.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Prayer</h3>
+          <p>
+            Religious practice can enter everyday social spaces.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Dress</h3>
+          <p>
+            Religious commitments can become visible through appearance.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Consumption</h3>
+          <p>
+            Halal markets and consumption can make religious identity socially visible.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="large">
+        Malik's account of the public revival of Islam suggests that
+        religion is not simply a private matter.
+      </p>
+
+      <div class="sources">
+        <p>
+          Malik (2019).
+          <em>Islam in Post-Soviet Kazakhstan: Experiencing Public Revival of Islam through Institutionalisation.</em>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       5. TRADITIONAL ISLAM
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">04 · Religious Authority</div>
+
+      <h2>
+        Who defines legitimate Islam?
+      </h2>
+
+      <p class="large">
+        What exactly is meant by “Traditional Islam”?
+      </p>
+
+      <p>
+        Kerim and Kurmanaliyev examine “Traditional Islam” as a
+        state-mediated and institutionally shaped category involving:
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Hanafi jurisprudence</h3>
+          <p>
+            A particular Islamic legal tradition.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Maturidi theology</h3>
+          <p>
+            A theological tradition associated with the official framing.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Local customs</h3>
+          <p>
+            Historical and cultural practices connected to Kazakh religious life.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="large">
+        This raises a question about
+        <strong>religious authority</strong>:
+        whose interpretation counts as legitimate?
+      </p>
+
+      <div class="sources">
+        <p>
+          Kerim & Kurmanaliyev (2026).
+          <em>Traditional Islam in Kazakhstan.</em>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       6. NATIONAL IDENTITY
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">05 · Identity</div>
+
+      <h2>
+        When religious identity meets national identity
+      </h2>
+
+      <p class="large">
+        What does it mean to be Muslim?
+        <br>
+        What does it mean to be Kazakh?
+      </p>
+
+      <p>
+        Sikhimbayeva and Sadvokassova examine the relationship between
+        Islam and ethnonational identity in post-Soviet Kazakhstan.
+      </p>
+
+      <p>
+        Their analysis shows how religious practices and ideas about
+        Kazakh identity can sometimes reinforce one another,
+        while at other times being interpreted as incompatible.
+      </p>
+
+      <div class="quote">
+        The important point is not to assume the answer,
+        but to ask how people themselves understand the relationship.
+      </div>
+
+      <div class="sources">
+        <p>
+          Sikhimbayeva & Sadvokassova (2025).
+          <em>Re-defining Kazakh national identity: interplay of Islam and ethnonationalism in post-Soviet nation-building in Kazakhstan.</em>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       7. CONTESTATION
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">06 · The Terrain</div>
+
+      <h2>
+        Competing interpretations
+      </h2>
+
+      <p>
+        The literature suggests several possible sites where interpretations
+        of Islamic tradition may come into tension.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Religious practice</h3>
+          <p>
+            How should a particular practice be understood?
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Tradition</h3>
+          <p>
+            Which customs are religiously meaningful, cultural, or both?
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Authority</h3>
+          <p>
+            Whose interpretation should be trusted?
+          </p>
+        </div>
+
+      </div>
+
+      <p class="large">
+        But these should not be treated as fixed camps.
+        Participants may combine, negotiate, or reject different interpretations.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       8. WHAT WE KNOW
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">07 · Literature Review</div>
+
+      <h2>
+        What do we already know?
+      </h2>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Literature tells us</th>
+            <th>What it helps us see</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Islam can become individualized.</td>
+            <td>Religious meaning may be connected to everyday personal life.</td>
+          </tr>
+
+          <tr>
+            <td>Islamic revival has a public dimension.</td>
+            <td>Personal religious choices can become socially visible.</td>
+          </tr>
+
+          <tr>
+            <td>“Traditional Islam” is institutionally shaped.</td>
+            <td>Questions of religious authority matter.</td>
+          </tr>
+
+          <tr>
+            <td>Islam intersects with Kazakh identity.</td>
+            <td>Religious and national boundaries can become connected.</td>
+          </tr>
+
+          <tr>
+            <td>Youth participate in changing forms of religiosity.</td>
+            <td>Young people are important actors in these processes.</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <p class="large">
+        The literature gives us the <em>terrain</em>.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       9. GAP
+  ========================= -->
+
+  <section id="gap">
+    <div class="content">
+
+      <div class="eyebrow">08 · Research Gap</div>
+
+      <h2>
+        From structures → to meanings
+      </h2>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Existing literature asks</th>
+            <th>My study asks</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>How is Islam regulated?</td>
+            <td>How do young Muslims understand Islam?</td>
+          </tr>
+
+          <tr>
+            <td>How is “Traditional Islam” constructed?</td>
+            <td>How do young Muslims interpret religious authority?</td>
+          </tr>
+
+          <tr>
+            <td>How does piety intersect with identity?</td>
+            <td>How do people make sense of that intersection?</td>
+          </tr>
+
+          <tr>
+            <td>What patterns exist among young Muslims?</td>
+            <td>How do individuals explain their own experiences?</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <div class="quote">
+        The literature I reviewed provides substantial analysis of
+        regulation, institutional authority, national identity,
+        and broader patterns of religiosity.
+        My study shifts the analytical focus toward
+        how young Kazakh Muslims themselves make sense of contested tradition.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       10. ACCOUNT
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">09 · Key Concept</div>
+
+      <h2>
+        Why “account”?
+      </h2>
+
+      <p class="large">
+        I use “account” broadly to mean the ways participants
+        explain and make their religious positions intelligible.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Explain</h3>
+          <p>
+            “This is how I understand this practice.”
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Negotiate</h3>
+          <p>
+            “I understand both sides, but I do something different.”
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Reinterpret</h3>
+          <p>
+            “I understand the tradition differently from how it is usually presented.”
+          </p>
+        </div>
+
+      </div>
+
+      <p>
+        I do not assume in advance which of these forms of meaning-making
+        participants will use.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       11. FRAMEWORK
+  ========================= -->
+
+  <section id="framework">
+    <div class="content">
+
+      <div class="eyebrow">10 · Analytical Framework</div>
+
+      <h2>
+        Three sensitizing concepts
+      </h2>
+
+      <p>
+        These concepts guide what I pay attention to without determining
+        what participants must say.
+      </p>
+
+      <div class="framework">
+
+        <div class="framework-item">
+          <div class="framework-number">01</div>
+
+          <h3>Meaning-making</h3>
+
+          <p>
+            How do participants understand religious practices,
+            experiences, and disagreements?
+          </p>
+        </div>
+
+
+        <div class="framework-item">
+          <div class="framework-number">02</div>
+
+          <h3>Religious authority</h3>
+
+          <p>
+            Whose interpretation is treated as credible?
+            Family? Imam? Scripture? Online teacher?
+            Personal experience?
+          </p>
+        </div>
+
+
+        <div class="framework-item">
+          <div class="framework-number">03</div>
+
+          <h3>Boundary-making</h3>
+
+          <p>
+            How are boundaries between Islamic / un-Islamic,
+            Kazakh / foreign, traditional / non-traditional
+            constructed or negotiated?
+          </p>
+        </div>
+
+      </div>
+
+      <div class="quote">
+        The framework sensitizes me to possible meanings;
+        it does not determine in advance what those meanings must be.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       12. POSITIONALITY
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">11 · Positionality</div>
+
+      <h2>
+        Who defines the problem?
+      </h2>
+
+      <p>
+        As a researcher, I enter the project already familiar with concepts
+        such as “Traditional Islam,” religious revival, securitisation,
+        and identity contestation.
+      </p>
+
+      <p class="large">
+        The risk is treating my analytical categories
+        as if they were automatically participants' categories.
+      </p>
+
+      <div class="quote">
+        Instead of asking:
+        <br><br>
+        “How do you deal with discrimination against your Islamic practice?”
+        <br><br>
+        I can ask:
+        <br><br>
+        “Can you tell me about a situation where your understanding of Islam
+        differed from someone else's?”
+      </div>
+
+      <p>
+        This leaves room for participants to identify what matters to them.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       13. METHOD
+  ========================= -->
+
+  <section id="method">
+    <div class="content">
+
+      <div class="eyebrow">12 · Methodology</div>
+
+      <h2>
+        Why this method?
+      </h2>
+
+      <div class="flow">
+
+        <div class="flow-item">
+          Interpretivism
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-item">
+          Meaning
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-item">
+          Qualitative approach
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-item">
+          Semi-structured interviews
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-item">
+          Participants explain experiences
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="flow-item">
+          Interpretive analysis
+        </div>
+
+      </div>
+
+      <p class="large">
+        The method follows the research question:
+        if the question is about how people make meaning,
+        I need a method that allows people to explain their meanings.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       14. CONTRIBUTION
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">13 · Contribution</div>
+
+      <h2>
+        What could this study add?
+      </h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Empirical contribution</h3>
+
+          <p>
+            A closer account of how young Kazakh Muslims interpret
+            and explain contested aspects of religious tradition.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>Conceptual contribution</h3>
+
+          <p>
+            Connecting broader processes such as individualization,
+            public religion, and institutional authority with
+            micro-level meaning-making.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>Scope</h3>
+
+          <p>
+            The aim is not to represent all young Kazakh Muslims,
+            but to illuminate how particular participants understand
+            their experiences.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       15. AI TRANSPARENCY
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">14 · AI Transparency</div>
+
+      <h2>
+        How I used AI
+      </h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>AI helped me...</h3>
+          <p>
+            Organize and synthesize the literature.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AI helped me...</h3>
+          <p>
+            Compare possible research gaps and structure the proposal.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>I remained responsible for...</h3>
+          <p>
+            Checking sources and understanding and presenting
+            every claim and concept in the proposal.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       16. REFLECTION
+  ========================= -->
+
+  <section id="reflection">
+    <div class="content">
+
+      <div class="eyebrow">15 · Reflection</div>
+
+      <h2>
+        What I still don't understand
+      </h2>
+
+      <p class="large">
+        AI helped me understand the difference between
+        <em>studying a phenomenon</em> and
+        <em>studying how people make sense of that phenomenon.</em>
+      </p>
+
+      <p>
+        But several questions remain:
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>01</h3>
+          <p>
+            How can I recognize participant meanings
+            without imposing my own?
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>02</h3>
+          <p>
+            How much should “publicly contested”
+            be defined before the interviews?
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>03</h3>
+          <p>
+            How can I distinguish participants'
+            interpretations from what they think
+            I expect them to say?
+          </p>
+        </div>
+
+      </div>
+
+      <div class="quote">
+        The literature tells me what the terrain looks like.
+        <br><br>
+        My research asks how people experience
+        and interpret that terrain.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       SOURCES
+  ========================= -->
+
+  <section>
+    <div class="content">
+
+      <div class="eyebrow">Selected Sources</div>
+
+      <h2>
+        Literature
+      </h2>
+
+      <div class="sources">
+
+        <p>
+          Omelicheva, M. Y. (2011).
+          “Islam in Kazakhstan: A survey of contemporary trends
+          and sources of securitization.”
+        </p>
+
+        <p>
+          Malik (2019).
+          “Islam in Post-Soviet Kazakhstan:
+          Experiencing Public Revival of Islam through Institutionalisation.”
+        </p>
+
+        <p>
+          Sikhimbayeva & Sadvokassova (2025).
+          “Re-defining Kazakh national identity:
+          interplay of Islam and ethnonationalism in post-Soviet
+          nation-building in Kazakhstan.”
+        </p>
+
+        <p>
+          Kerim & Kurmanaliyev (2026).
+          “Traditional Islam in Kazakhstan.”
+        </p>
+
+        <p>
+          Bektenova et al. (2025).
+          Work on young Muslims, religious identity,
+          and public friction in Kazakhstan.
+        </p>
+
+        <p>
+          Zakhaya, Tyshkhan & Shamakhay (2022/2024).
+          “The problem of the traditional view of Islam in Kazakhstan.”
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+    <p>
+      Research Proposal · PLS210 Research Methods
+    </p>
+
+    <p>
+      How do young Kazakh Muslims account for aspects of Islamic tradition
+      that are publicly contested in Kazakhstan?
+    </p>
+  </footer>
+
+
 </body>
 </html>
