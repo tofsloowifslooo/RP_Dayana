@@ -1,1314 +1,1527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>What Does It Mean to Be a “Good” Muslim?</title>
-
-  <style>
-    /* =========================
-       GENERAL
-    ========================= */
-
-    @font-face {
-      font-family: "Bookerly";
-      src: url("fonts/Bookerly.woff2") format("woff2");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #f7f4ee;
-      color: #24221f;
-      font-family: "Bookerly", Georgia, serif;
-      line-height: 1.65;
-    }
-
-    section {
-      min-height: 100vh;
-      padding: 80px 9vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-bottom: 1px solid #ddd6ca;
-      position: relative;
-    }
-
-    .content {
-      max-width: 1050px;
-      margin: auto;
-      width: 100%;
-    }
-
-    /* =========================
-       TYPOGRAPHY
-    ========================= */
-
-    .eyebrow {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #756c61;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.98;
-      font-weight: 400;
-      margin: 0 0 30px;
-      max-width: 1000px;
-    }
-
-    h2 {
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 1.05;
-      font-weight: 400;
-      margin: 0 0 35px;
-    }
-
-    h3 {
-      font-size: 1.45rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 850px;
-    }
-
-    .large {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      line-height: 1.4;
-    }
-
-    .small {
-      font-size: 0.95rem;
-      color: #70695f;
-    }
-
-    .accent {
-      font-style: italic;
-    }
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(247, 244, 238, 0.94);
-      border-bottom: 1px solid #ddd6ca;
-      backdrop-filter: blur(8px);
-    }
-
-    .nav-title {
-      font-size: 0.95rem;
-      color: #5e574f;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #5e574f;
-      font-size: 0.85rem;
-    }
-
-    .nav-links a:hover {
-      color: #171513;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100vh;
-      background: #eee9df;
-    }
-
-    .hero h1 {
-      max-width: 900px;
-    }
-
-    .hero-subtitle {
-      font-size: 1.35rem;
-      max-width: 700px;
-      color: #5d574f;
-    }
-
-    .scroll-note {
-      margin-top: 70px;
-      font-size: 0.9rem;
-      color: #756c61;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       CARDS
-    ========================= */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 35px;
-    }
-
-    .card {
-      border: 1px solid #d8d0c4;
-      padding: 25px;
-      background: rgba(255,255,255,0.35);
-    }
-
-    .card p {
-      font-size: 1rem;
-      margin-bottom: 0;
-    }
-
-    /* =========================
-       QUESTION
-    ========================= */
-
-    .research-question {
-      border-left: 4px solid #74695c;
-      padding: 25px 35px;
-      margin: 30px 0;
-      background: #eee9df;
-    }
-
-    .research-question p {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      line-height: 1.35;
-      margin: 0;
-    }
-
-    /* =========================
-       TABLE
-    ========================= */
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      font-size: 1.05rem;
-    }
-
-    th,
-    td {
-      border-bottom: 1px solid #d7d0c5;
-      padding: 18px 15px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      font-weight: normal;
-      color: #625b52;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* =========================
-       FRAMEWORK
-    ========================= */
-
-    .framework {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      margin-top: 35px;
-    }
-
-    .framework-item {
-      padding: 30px;
-      background: #eee9df;
-      min-height: 220px;
-    }
-
-    .framework-number {
-      font-size: 0.85rem;
-      color: #777066;
-      margin-bottom: 25px;
-    }
-
-    /* =========================
-       FLOW
-    ========================= */
-
-    .flow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 45px;
-    }
-
-    .flow-item {
-      padding: 15px 20px;
-      border: 1px solid #bdb4a7;
-      background: #fdfbf7;
-    }
-
-    .arrow {
-      font-size: 1.4rem;
-      color: #777066;
-    }
-
-    /* =========================
-       QUOTE
-    ========================= */
-
-    .quote {
-      margin: 40px 0;
-      padding: 30px 0;
-      border-top: 1px solid #cfc7ba;
-      border-bottom: 1px solid #cfc7ba;
-      font-size: 1.7rem;
-      font-style: italic;
-      max-width: 850px;
-    }
-
-    /* =========================
-       SOURCES
-    ========================= */
-
-    .sources {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #d8d0c4;
-    }
-
-    .sources p {
-      font-size: 0.9rem;
-      color: #70695f;
-      margin: 5px 0;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 60px 9vw;
-      background: #eee9df;
-      color: #625b52;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 800px) {
-
-      section {
-        padding: 90px 7vw;
-      }
-
-      nav {
-        padding: 12px 18px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .cards,
-      .framework {
-        grid-template-columns: 1fr;
-      }
-
-      .flow {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .arrow {
-        transform: rotate(90deg);
-      }
-
-      table {
-        font-size: 0.9rem;
-      }
-
-      th,
-      td {
-        padding: 12px 8px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Islam, Tradition & Meaning-Making in Kazakhstan</title>
+
+<style>
+
+@font-face {
+  font-family: "Bookerly";
+  src: url("fonts/Bookerly.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #f7f4ee;
+  --text: #27241f;
+  --muted: #766f65;
+  --line: #d8d1c5;
+  --soft: #eee9df;
+  --accent: #756957;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Bookerly", Georgia, serif;
+}
+
+/* =========================
+   SLIDES
+========================= */
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  min-height: 100vh;
+  padding: 80px 9vw 110px;
+
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(35px);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.content {
+  width: 100%;
+  max-width: 1120px;
+  margin: auto;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.98;
+  font-weight: 400;
+  margin: 0 0 35px;
+  max-width: 1000px;
+}
+
+h2 {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  line-height: 1;
+  font-weight: 400;
+  margin: 0 0 35px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.65;
+  max-width: 850px;
+}
+
+.large {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  line-height: 1.4;
+}
+
+.italic {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* =========================
+   TITLE SLIDE
+========================= */
+
+.title-slide {
+  background: var(--soft);
+}
+
+.title-slide .subtitle {
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 1.35rem;
+}
+
+/* =========================
+   QUESTION
+========================= */
+
+.question-box {
+  background: var(--soft);
+  border-left: 5px solid var(--accent);
+  padding: 35px 40px;
+  margin: 35px 0;
+  max-width: 1000px;
+}
+
+.question-box p {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* =========================
+   HOOK
+========================= */
+
+.hook-line {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.35;
+  margin: 25px 0;
+  max-width: 950px;
+}
+
+.hook-line strong {
+  font-weight: 500;
+}
+
+.hook-question {
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+  margin-top: 45px;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  max-width: 900px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  padding: 28px;
+  background: rgba(255,255,255,0.25);
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 58px;
+
+  background: rgba(247,244,238,0.96);
+  border-top: 1px solid var(--line);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
+}
+
+.journey-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.journey-item {
+  flex: 1;
+  height: 3px;
+  background: #d5cec2;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.journey-item.active {
+  background: var(--accent);
+}
+
+.journey-label {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+
+  font-size: 0.65rem;
+  color: var(--muted);
+
+  white-space: nowrap;
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.journey-item.active .journey-label {
+  opacity: 1;
+}
+
+/* =========================
+   SLIDE NUMBER
+========================= */
+
+.slide-number {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* =========================
+   NAVIGATION ARROWS
+========================= */
+
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 55px;
+  height: 55px;
+
+  border: 1px solid var(--line);
+  background: rgba(247,244,238,0.8);
+
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+
+  color: var(--text);
+
+  cursor: pointer;
+  z-index: 200;
+
+  transition: all 0.2s;
+}
+
+.arrow:hover {
+  background: var(--soft);
+}
+
+.arrow-left {
+  left: 25px;
+}
+
+.arrow-right {
+  right: 25px;
+}
+
+/* =========================
+   LITERATURE TABLE
+========================= */
+
+.lit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.lit-item {
+  padding: 25px;
+  background: var(--soft);
+}
+
+.lit-item p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =========================
+   GAP
+========================= */
+
+.gap-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.gap-table th,
+.gap-table td {
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.gap-table th {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+/* =========================
+   FRAMEWORK
+========================= */
+
+.framework {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.framework-card {
+  background: var(--soft);
+  padding: 30px;
+  min-height: 230px;
+}
+
+.number {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   FLOW
+========================= */
+
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 45px 0;
+}
+
+.flow-item {
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.flow-arrow {
+  color: var(--muted);
+  font-size: 1.3rem;
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  padding: 30px 0;
+  margin: 35px 0;
+
+  font-size: 1.5rem;
+  font-style: italic;
+
+  max-width: 900px;
+}
+
+/* =========================
+   SOURCES
+========================= */
+
+.sources {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.sources p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 6px 0;
+}
+
+/* =========================
+   END SLIDE
+========================= */
+
+.end {
+  background: var(--soft);
+}
+
+.end h2 {
+  max-width: 900px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .slide {
+    padding: 60px 7vw 100px;
+    overflow-y: auto;
+  }
+
+  h1 {
+    font-size: 3.3rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  .cards,
+  .framework,
+  .lit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    width: 45px;
+    height: 45px;
+  }
+
+  .arrow-left {
+    left: 10px;
+  }
+
+  .arrow-right {
+    right: 10px;
+  }
+
+  .journey-label {
+    display: none;
+  }
+
+  .journey {
+    height: 35px;
+  }
+}
+
+</style>
 </head>
 
 
 <body>
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
 
-  <nav>
-    <div class="nav-title">
-      Research Proposal · PLS210
+<!-- =========================================================
+     SLIDE 1 — HOOK
+========================================================= -->
+
+<section class="slide active title-slide" data-slide="1">
+
+  <div class="slide-number">01 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">A small word · A larger question</div>
+
+    <h1>
+      Iftar or<br>
+      ауызашар?
+    </h1>
+
+    <div class="hook-line">
+      Someone might say:
+      <br>
+      <strong>“It’s just another word for breaking the fast.”</strong>
     </div>
 
-    <div class="nav-links">
-      <a href="#hook">Hook</a>
-      <a href="#question">RQ</a>
-      <a href="#literature">Literature</a>
-      <a href="#gap">Gap</a>
-      <a href="#framework">Framework</a>
-      <a href="#method">Method</a>
-      <a href="#reflection">Reflection</a>
+    <div class="hook-line">
+      Someone else might think:
+      <br>
+      <strong>“Why not use the Kazakh word? Isn’t that part of our tradition?”</strong>
     </div>
-  </nav>
+
+    <div class="hook-question">
+      Is this simply a choice of words —
+      or does it say something about
+      <em>religious and cultural identity?</em>
+    </div>
+
+  </div>
+
+</section>
 
 
-  <!-- =========================
-       1. HOOK
-  ========================= -->
+<!-- =========================================================
+     SLIDE 2 — RESEARCH QUESTION
+========================================================= -->
 
-  <section class="hero" id="hook">
-    <div class="content">
+<section class="slide" data-slide="2">
 
-      <div class="eyebrow">Research Proposal · PLS210</div>
+  <div class="slide-number">02 / 15</div>
 
-      <h1>
-        What does it mean to be a
-        <span class="accent">“good” Muslim?</span>
-      </h1>
+  <div class="content">
 
-      <p class="hero-subtitle">
-        Imagine someone tells you:
-        <br><br>
-        <strong>“This is a religious practice, but it is not really Kazakh.”</strong>
-      </p>
+    <div class="eyebrow">Research Question</div>
+
+    <h2>
+      This is the starting point.
+    </h2>
+
+    <div class="question-box">
 
       <p>
-        Take a few seconds.
-        Don't decide whether the statement is right or wrong.
-        Instead, ask:
-      </p>
-
-      <p class="large">
-        <em>Who gets to decide what counts as both Islamic and Kazakh?</em>
-      </p>
-
-      <div class="scroll-note">
-        ↓ Scroll to begin
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       2. RESEARCH QUESTION
-  ========================= -->
-
-  <section id="question">
-    <div class="content">
-
-      <div class="eyebrow">01 · Research Question</div>
-
-      <h2>
-        The question
-      </h2>
-
-      <div class="research-question">
-        <p>
-          How do young Kazakh Muslims account for aspects of Islamic tradition that are publicly contested in Kazakhstan?
-        </p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Young Kazakh Muslims</h3>
-          <p>
-            The people whose interpretations and experiences are at the centre of the study.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>“Account for”</h3>
-          <p>
-            To explain, interpret, negotiate, justify, reinterpret, or otherwise make something intelligible.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>“Publicly contested”</h3>
-          <p>
-            Religious practices or interpretations that are questioned, disputed, or debated in social contexts.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       3. OMELICHEVA
-  ========================= -->
-
-  <section id="literature">
-    <div class="content">
-
-      <div class="eyebrow">02 · Starting Point</div>
-
-      <h2>
-        Islam as a “way of life”
-      </h2>
-
-      <p class="large">
-        Islamic revival is not necessarily only about joining religious institutions.
-      </p>
-
-      <p>
-        Omelicheva's analysis points toward the
-        <strong>individualization and intimization of Islam</strong>:
-        religious ideas can become part of personal ethics,
-        everyday choices, and understandings of how to live.
-      </p>
-
-      <div class="quote">
-        If Islam can become part of everyday moral life,
-        then religious meaning is also something people actively interpret.
-      </div>
-
-      <div class="sources">
-        <p>
-          Omelicheva, M. Y. (2011).
-          <em>Islam in Kazakhstan: A survey of contemporary trends and sources of securitization.</em>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       4. MALIK
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">03 · Public Religion</div>
-
-      <h2>
-        Individualized ≠ private
-      </h2>
-
-      <p>
-        Personal religious practice can become socially visible.
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Prayer</h3>
-          <p>
-            Religious practice can enter everyday social spaces.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Dress</h3>
-          <p>
-            Religious commitments can become visible through appearance.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Consumption</h3>
-          <p>
-            Halal markets and consumption can make religious identity socially visible.
-          </p>
-        </div>
-
-      </div>
-
-      <p class="large">
-        Malik's account of the public revival of Islam suggests that
-        religion is not simply a private matter.
-      </p>
-
-      <div class="sources">
-        <p>
-          Malik (2019).
-          <em>Islam in Post-Soviet Kazakhstan: Experiencing Public Revival of Islam through Institutionalisation.</em>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       5. TRADITIONAL ISLAM
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">04 · Religious Authority</div>
-
-      <h2>
-        Who defines legitimate Islam?
-      </h2>
-
-      <p class="large">
-        What exactly is meant by “Traditional Islam”?
-      </p>
-
-      <p>
-        Kerim and Kurmanaliyev examine “Traditional Islam” as a
-        state-mediated and institutionally shaped category involving:
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Hanafi jurisprudence</h3>
-          <p>
-            A particular Islamic legal tradition.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Maturidi theology</h3>
-          <p>
-            A theological tradition associated with the official framing.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Local customs</h3>
-          <p>
-            Historical and cultural practices connected to Kazakh religious life.
-          </p>
-        </div>
-
-      </div>
-
-      <p class="large">
-        This raises a question about
-        <strong>religious authority</strong>:
-        whose interpretation counts as legitimate?
-      </p>
-
-      <div class="sources">
-        <p>
-          Kerim & Kurmanaliyev (2026).
-          <em>Traditional Islam in Kazakhstan.</em>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       6. NATIONAL IDENTITY
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">05 · Identity</div>
-
-      <h2>
-        When religious identity meets national identity
-      </h2>
-
-      <p class="large">
-        What does it mean to be Muslim?
-        <br>
-        What does it mean to be Kazakh?
-      </p>
-
-      <p>
-        Sikhimbayeva and Sadvokassova examine the relationship between
-        Islam and ethnonational identity in post-Soviet Kazakhstan.
-      </p>
-
-      <p>
-        Their analysis shows how religious practices and ideas about
-        Kazakh identity can sometimes reinforce one another,
-        while at other times being interpreted as incompatible.
-      </p>
-
-      <div class="quote">
-        The important point is not to assume the answer,
-        but to ask how people themselves understand the relationship.
-      </div>
-
-      <div class="sources">
-        <p>
-          Sikhimbayeva & Sadvokassova (2025).
-          <em>Re-defining Kazakh national identity: interplay of Islam and ethnonationalism in post-Soviet nation-building in Kazakhstan.</em>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       7. CONTESTATION
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">06 · The Terrain</div>
-
-      <h2>
-        Competing interpretations
-      </h2>
-
-      <p>
-        The literature suggests several possible sites where interpretations
-        of Islamic tradition may come into tension.
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Religious practice</h3>
-          <p>
-            How should a particular practice be understood?
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Tradition</h3>
-          <p>
-            Which customs are religiously meaningful, cultural, or both?
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Authority</h3>
-          <p>
-            Whose interpretation should be trusted?
-          </p>
-        </div>
-
-      </div>
-
-      <p class="large">
-        But these should not be treated as fixed camps.
-        Participants may combine, negotiate, or reject different interpretations.
+        How do young Kazakh Muslims account for aspects of Islamic tradition
+        that are publicly contested in Kazakhstan?
       </p>
 
     </div>
-  </section>
 
-
-  <!-- =========================
-       8. WHAT WE KNOW
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">07 · Literature Review</div>
-
-      <h2>
-        What do we already know?
-      </h2>
-
-      <table>
-
-        <thead>
-          <tr>
-            <th>Literature tells us</th>
-            <th>What it helps us see</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>Islam can become individualized.</td>
-            <td>Religious meaning may be connected to everyday personal life.</td>
-          </tr>
-
-          <tr>
-            <td>Islamic revival has a public dimension.</td>
-            <td>Personal religious choices can become socially visible.</td>
-          </tr>
-
-          <tr>
-            <td>“Traditional Islam” is institutionally shaped.</td>
-            <td>Questions of religious authority matter.</td>
-          </tr>
-
-          <tr>
-            <td>Islam intersects with Kazakh identity.</td>
-            <td>Religious and national boundaries can become connected.</td>
-          </tr>
-
-          <tr>
-            <td>Youth participate in changing forms of religiosity.</td>
-            <td>Young people are important actors in these processes.</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-      <p class="large">
-        The literature gives us the <em>terrain</em>.
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       9. GAP
-  ========================= -->
-
-  <section id="gap">
-    <div class="content">
-
-      <div class="eyebrow">08 · Research Gap</div>
-
-      <h2>
-        From structures → to meanings
-      </h2>
-
-      <table>
-
-        <thead>
-          <tr>
-            <th>Existing literature asks</th>
-            <th>My study asks</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>How is Islam regulated?</td>
-            <td>How do young Muslims understand Islam?</td>
-          </tr>
-
-          <tr>
-            <td>How is “Traditional Islam” constructed?</td>
-            <td>How do young Muslims interpret religious authority?</td>
-          </tr>
-
-          <tr>
-            <td>How does piety intersect with identity?</td>
-            <td>How do people make sense of that intersection?</td>
-          </tr>
-
-          <tr>
-            <td>What patterns exist among young Muslims?</td>
-            <td>How do individuals explain their own experiences?</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-      <div class="quote">
-        The literature I reviewed provides substantial analysis of
-        regulation, institutional authority, national identity,
-        and broader patterns of religiosity.
-        My study shifts the analytical focus toward
-        how young Kazakh Muslims themselves make sense of contested tradition.
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       10. ACCOUNT
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">09 · Key Concept</div>
-
-      <h2>
-        Why “account”?
-      </h2>
-
-      <p class="large">
-        I use “account” broadly to mean the ways participants
-        explain and make their religious positions intelligible.
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Explain</h3>
-          <p>
-            “This is how I understand this practice.”
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Negotiate</h3>
-          <p>
-            “I understand both sides, but I do something different.”
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Reinterpret</h3>
-          <p>
-            “I understand the tradition differently from how it is usually presented.”
-          </p>
-        </div>
-
-      </div>
-
-      <p>
-        I do not assume in advance which of these forms of meaning-making
-        participants will use.
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       11. FRAMEWORK
-  ========================= -->
-
-  <section id="framework">
-    <div class="content">
-
-      <div class="eyebrow">10 · Analytical Framework</div>
-
-      <h2>
-        Three sensitizing concepts
-      </h2>
-
-      <p>
-        These concepts guide what I pay attention to without determining
-        what participants must say.
-      </p>
-
-      <div class="framework">
-
-        <div class="framework-item">
-          <div class="framework-number">01</div>
-
-          <h3>Meaning-making</h3>
-
-          <p>
-            How do participants understand religious practices,
-            experiences, and disagreements?
-          </p>
-        </div>
-
-
-        <div class="framework-item">
-          <div class="framework-number">02</div>
-
-          <h3>Religious authority</h3>
-
-          <p>
-            Whose interpretation is treated as credible?
-            Family? Imam? Scripture? Online teacher?
-            Personal experience?
-          </p>
-        </div>
-
-
-        <div class="framework-item">
-          <div class="framework-number">03</div>
-
-          <h3>Boundary-making</h3>
-
-          <p>
-            How are boundaries between Islamic / un-Islamic,
-            Kazakh / foreign, traditional / non-traditional
-            constructed or negotiated?
-          </p>
-        </div>
-
-      </div>
-
-      <div class="quote">
-        The framework sensitizes me to possible meanings;
-        it does not determine in advance what those meanings must be.
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       12. POSITIONALITY
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">11 · Positionality</div>
-
-      <h2>
-        Who defines the problem?
-      </h2>
-
-      <p>
-        As a researcher, I enter the project already familiar with concepts
-        such as “Traditional Islam,” religious revival, securitisation,
-        and identity contestation.
-      </p>
-
-      <p class="large">
-        The risk is treating my analytical categories
-        as if they were automatically participants' categories.
-      </p>
-
-      <div class="quote">
-        Instead of asking:
-        <br><br>
-        “How do you deal with discrimination against your Islamic practice?”
-        <br><br>
-        I can ask:
-        <br><br>
-        “Can you tell me about a situation where your understanding of Islam
-        differed from someone else's?”
-      </div>
-
-      <p>
-        This leaves room for participants to identify what matters to them.
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       13. METHOD
-  ========================= -->
-
-  <section id="method">
-    <div class="content">
-
-      <div class="eyebrow">12 · Methodology</div>
-
-      <h2>
-        Why this method?
-      </h2>
-
-      <div class="flow">
-
-        <div class="flow-item">
-          Interpretivism
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div class="flow-item">
-          Meaning
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div class="flow-item">
-          Qualitative approach
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div class="flow-item">
-          Semi-structured interviews
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div class="flow-item">
-          Participants explain experiences
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div class="flow-item">
-          Interpretive analysis
-        </div>
-
-      </div>
-
-      <p class="large">
-        The method follows the research question:
-        if the question is about how people make meaning,
-        I need a method that allows people to explain their meanings.
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       14. CONTRIBUTION
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">13 · Contribution</div>
-
-      <h2>
-        What could this study add?
-      </h2>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Empirical contribution</h3>
-
-          <p>
-            A closer account of how young Kazakh Muslims interpret
-            and explain contested aspects of religious tradition.
-          </p>
-        </div>
-
-
-        <div class="card">
-          <h3>Conceptual contribution</h3>
-
-          <p>
-            Connecting broader processes such as individualization,
-            public religion, and institutional authority with
-            micro-level meaning-making.
-          </p>
-        </div>
-
-
-        <div class="card">
-          <h3>Scope</h3>
-
-          <p>
-            The aim is not to represent all young Kazakh Muslims,
-            but to illuminate how particular participants understand
-            their experiences.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       15. AI TRANSPARENCY
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">14 · AI Transparency</div>
-
-      <h2>
-        How I used AI
-      </h2>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>AI helped me...</h3>
-          <p>
-            Organize and synthesize the literature.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>AI helped me...</h3>
-          <p>
-            Compare possible research gaps and structure the proposal.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>I remained responsible for...</h3>
-          <p>
-            Checking sources and understanding and presenting
-            every claim and concept in the proposal.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       16. REFLECTION
-  ========================= -->
-
-  <section id="reflection">
-    <div class="content">
-
-      <div class="eyebrow">15 · Reflection</div>
-
-      <h2>
-        What I still don't understand
-      </h2>
-
-      <p class="large">
-        AI helped me understand the difference between
-        <em>studying a phenomenon</em> and
-        <em>studying how people make sense of that phenomenon.</em>
-      </p>
-
-      <p>
-        But several questions remain:
-      </p>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>01</h3>
-          <p>
-            How can I recognize participant meanings
-            without imposing my own?
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>02</h3>
-          <p>
-            How much should “publicly contested”
-            be defined before the interviews?
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>03</h3>
-          <p>
-            How can I distinguish participants'
-            interpretations from what they think
-            I expect them to say?
-          </p>
-        </div>
-
-      </div>
-
-      <div class="quote">
-        The literature tells me what the terrain looks like.
-        <br><br>
-        My research asks how people experience
-        and interpret that terrain.
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       SOURCES
-  ========================= -->
-
-  <section>
-    <div class="content">
-
-      <div class="eyebrow">Selected Sources</div>
-
-      <h2>
-        Literature
-      </h2>
-
-      <div class="sources">
-
-        <p>
-          Omelicheva, M. Y. (2011).
-          “Islam in Kazakhstan: A survey of contemporary trends
-          and sources of securitization.”
-        </p>
-
-        <p>
-          Malik (2019).
-          “Islam in Post-Soviet Kazakhstan:
-          Experiencing Public Revival of Islam through Institutionalisation.”
-        </p>
-
-        <p>
-          Sikhimbayeva & Sadvokassova (2025).
-          “Re-defining Kazakh national identity:
-          interplay of Islam and ethnonationalism in post-Soviet
-          nation-building in Kazakhstan.”
-        </p>
-
-        <p>
-          Kerim & Kurmanaliyev (2026).
-          “Traditional Islam in Kazakhstan.”
-        </p>
-
-        <p>
-          Bektenova et al. (2025).
-          Work on young Muslims, religious identity,
-          and public friction in Kazakhstan.
-        </p>
-
-        <p>
-          Zakhaya, Tyshkhan & Shamakhay (2022/2024).
-          “The problem of the traditional view of Islam in Kazakhstan.”
-        </p>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
     <p>
-      Research Proposal · PLS210 Research Methods
+      The question shifts attention from simply asking
+      <em>what is contested</em> to asking
+      <strong>how people themselves make sense of it.</strong>
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 3 — TERMS
+========================================================= -->
+
+<section class="slide" data-slide="3">
+
+  <div class="slide-number">03 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Clarifying the Question</div>
+
+    <h2>
+      What do I mean by “account”?
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Explain</h3>
+        <p>
+          How participants explain what a religious practice means to them.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Interpret</h3>
+        <p>
+          How they understand practices, traditions, and disagreements.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Negotiate</h3>
+        <p>
+          How they respond when different interpretations meet.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="large">
+      I am not assuming that participants must
+      <em>defend</em> or <em>justify</em> their beliefs.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 4 — MACRO STARTING POINT
+========================================================= -->
+
+<section class="slide" data-slide="4">
+
+  <div class="slide-number">04 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Context</div>
+
+    <h2>
+      Islam as a “way of life”
+    </h2>
+
+    <p class="large">
+      The revival of Islam is not only about religious institutions.
     </p>
 
     <p>
-      How do young Kazakh Muslims account for aspects of Islamic tradition
-      that are publicly contested in Kazakhstan?
+      Omelicheva describes processes of
+      <strong>individualization and intimization</strong>
+      of Islam: religious ideas can become connected to
+      personal ethics, everyday choices, and ways of living.
     </p>
-  </footer>
 
+    <div class="quote">
+      If religion becomes part of everyday life,
+      people also have to interpret what it means in their own circumstances.
+    </div>
+
+    <div class="sources">
+      <p>
+        Omelicheva (2011)
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 5 — PUBLIC
+========================================================= -->
+
+<section class="slide" data-slide="5">
+
+  <div class="slide-number">05 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Context</div>
+
+    <h2>
+      Individualized ≠ private
+    </h2>
+
+    <p class="large">
+      Personal faith can become socially visible.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Prayer</h3>
+        <p>
+          Religious practice can enter everyday social spaces.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Dress</h3>
+        <p>
+          Religious commitments can become visible through appearance.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Consumption</h3>
+        <p>
+          Halal practices can connect religion with everyday life.
+        </p>
+      </div>
+
+    </div>
+
+    <p>
+      Malik's work emphasizes the
+      <strong>public and social dimension</strong>
+      of Islamic revival.
+    </p>
+
+    <div class="sources">
+      <p>
+        Malik (2019)
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 6 — AUTHORITY
+========================================================= -->
+
+<section class="slide" data-slide="6">
+
+  <div class="slide-number">06 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Literature · Religious Authority</div>
+
+    <h2>
+      Who defines legitimate Islam?
+    </h2>
+
+    <p class="large">
+      What exactly counts as “Traditional Islam”?
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Hanafi</h3>
+        <p>
+          A particular Islamic legal tradition.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Maturidi</h3>
+        <p>
+          A theological tradition associated with the official framing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Local customs</h3>
+        <p>
+          Historical and cultural practices connected to Kazakh Muslim life.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="large">
+      This makes <strong>religious authority</strong>
+      an important question.
+    </p>
+
+    <div class="sources">
+      <p>
+        Kerim & Kurmanaliyev (2026)
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 7 — IDENTITY
+========================================================= -->
+
+<section class="slide" data-slide="7">
+
+  <div class="slide-number">07 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Literature · Identity</div>
+
+    <h2>
+      When religion meets national identity
+    </h2>
+
+    <p class="large">
+      What does it mean to be Muslim?
+      <br>
+      What does it mean to be Kazakh?
+    </p>
+
+    <p>
+      Sikhimbayeva and Sadvokassova examine the relationship
+      between Islam and ethnonational identity in Kazakhstan.
+    </p>
+
+    <p>
+      Their analysis shows that religious and national identities
+      can overlap, reinforce one another, or become interpreted
+      as being in tension.
+    </p>
+
+    <div class="quote">
+      The important question is:
+      <strong>how do people themselves understand this relationship?</strong>
+    </div>
+
+    <div class="sources">
+      <p>
+        Sikhimbayeva & Sadvokassova (2025)
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 8 — YOUTH
+========================================================= -->
+
+<section class="slide" data-slide="8">
+
+  <div class="slide-number">08 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Literature · Youth</div>
+
+    <h2>
+      And young people?
+    </h2>
+
+    <p class="large">
+      Young Muslims are part of these changing forms of religiosity.
+    </p>
+
+    <div class="lit-grid">
+
+      <div class="lit-item">
+        <h3>Religious identity</h3>
+        <p>
+          Research discusses changing ways young people relate
+          to Islamic practice and identity.
+        </p>
+      </div>
+
+      <div class="lit-item">
+        <h3>Competing interpretations</h3>
+        <p>
+          Young Kazakhs may encounter different interpretations
+          of what constitutes legitimate religious practice.
+        </p>
+      </div>
+
+      <div class="lit-item">
+        <h3>Intergenerational difference</h3>
+        <p>
+          Differences can emerge between inherited understandings
+          and newer forms of religiosity.
+        </p>
+      </div>
+
+      <div class="lit-item">
+        <h3>Public friction</h3>
+        <p>
+          Religious practices can become visible points
+          of social discussion or disagreement.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 9 — LITERATURE SYNTHESIS
+========================================================= -->
+
+<section class="slide" data-slide="9">
+
+  <div class="slide-number">09 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Literature Review</div>
+
+    <h2>
+      What does the literature give us?
+    </h2>
+
+    <div class="lit-grid">
+
+      <div class="lit-item">
+        <h3>Individualization</h3>
+        <p>
+          Islam can become part of personal everyday life.
+        </p>
+      </div>
+
+      <div class="lit-item">
+        <h3>Public religion</h3>
+        <p>
+          Religious revival also has social and public dimensions.
+        </p>
+      </div>
+
+      <div class="lit-item">
+        <h3>Religious authority</h3>
+        <p>
+          Institutions and religious actors shape ideas of legitimate Islam.
+        </p>
+      </div>
+
+      <div class="lit-item">
+        <h3>National identity</h3>
+        <p>
+          Islam can become connected to competing ideas of Kazakhness.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="large">
+      The literature gives me the
+      <em>terrain</em>.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 10 — PUZZLE
+========================================================= -->
+
+<section class="slide" data-slide="10">
+
+  <div class="slide-number">10 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">The Puzzle</div>
+
+    <h2>
+      But where are the meanings?
+    </h2>
+
+    <p class="large">
+      We know a lot about the structures surrounding religious life.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Institutions</h3>
+        <p>
+          How religious authority is organized and regulated.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Public discourse</h3>
+        <p>
+          How religion and identity are discussed and contested.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Patterns</h3>
+        <p>
+          How broader forms of youth religiosity are changing.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="large">
+      But I want to move closer to the people
+      who actually have to navigate these meanings.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 11 — GAP
+========================================================= -->
+
+<section class="slide" data-slide="11">
+
+  <div class="slide-number">11 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Research Gap</div>
+
+    <h2>
+      From structures → to meanings
+    </h2>
+
+    <table class="gap-table">
+
+      <tr>
+        <th>Existing literature</th>
+        <th>My question</th>
+      </tr>
+
+      <tr>
+        <td>
+          How is Islam regulated?
+        </td>
+
+        <td>
+          How do young Muslims understand Islam?
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          How is “Traditional Islam” constructed?
+        </td>
+
+        <td>
+          How do young Muslims interpret religious authority?
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          How does piety intersect with identity?
+        </td>
+
+        <td>
+          How do people make sense of that intersection?
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          What patterns exist among youth?
+        </td>
+
+        <td>
+          How do individuals explain their own experiences?
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 12 — FRAMEWORK
+========================================================= -->
+
+<section class="slide" data-slide="12">
+
+  <div class="slide-number">12 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Analytical Framework</div>
+
+    <h2>
+      Three sensitizing concepts
+    </h2>
+
+    <div class="framework">
+
+      <div class="framework-card">
+
+        <div class="number">01</div>
+
+        <h3>Meaning-making</h3>
+
+        <p>
+          How do participants understand religious practices,
+          experiences, and disagreements?
+        </p>
+
+      </div>
+
+      <div class="framework-card">
+
+        <div class="number">02</div>
+
+        <h3>Religious authority</h3>
+
+        <p>
+          Whose interpretation is treated as credible?
+          Family, imam, scripture, online teacher,
+          or personal experience?
+        </p>
+
+      </div>
+
+      <div class="framework-card">
+
+        <div class="number">03</div>
+
+        <h3>Boundary-making</h3>
+
+        <p>
+          How are boundaries such as
+          Islamic / un-Islamic,
+          Kazakh / foreign,
+          traditional / non-traditional
+          constructed?
+        </p>
+
+      </div>
+
+    </div>
+
+    <p>
+      These are <strong>sensitizing concepts</strong>,
+      not predetermined findings.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 13 — POSITIONALITY + METHOD
+========================================================= -->
+
+<section class="slide" data-slide="13">
+
+  <div class="slide-number">13 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Positionality · Method</div>
+
+    <h2>
+      Who defines the problem?
+    </h2>
+
+    <p>
+      I enter the research already knowing concepts such as
+      “Traditional Islam,” religious revival,
+      securitisation, and identity contestation.
+    </p>
+
+    <p class="large">
+      But I should not assume that participants
+      organize their experiences using the same categories.
+    </p>
+
+    <div class="flow">
+
+      <div class="flow-item">Interpretivism</div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-item">Meaning</div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-item">Qualitative research</div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-item">Semi-structured interviews</div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-item">Participant meanings</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 14 — CONTRIBUTION
+========================================================= -->
+
+<section class="slide" data-slide="14">
+
+  <div class="slide-number">14 / 15</div>
+
+  <div class="content">
+
+    <div class="eyebrow">Contribution</div>
+
+    <h2>
+      What could this study add?
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Empirical</h3>
+
+        <p>
+          A closer account of how young Kazakh Muslims
+          interpret and explain contested aspects
+          of religious tradition.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Conceptual</h3>
+
+        <p>
+          Connecting broader processes such as
+          individualization and public religion
+          with micro-level meaning-making.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Scope</h3>
+
+        <p>
+          The aim is not to represent all young Kazakh Muslims,
+          but to illuminate particular participants'
+          experiences and interpretations.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SLIDE 15 — REFLECTION
+========================================================= -->
+
+<section class="slide end" data-slide="15">
+
+  <div class="content">
+
+    <div class="eyebrow">Final Reflection</div>
+
+    <h2>
+      The literature tells me what the terrain looks like.
+    </h2>
+
+    <p class="large">
+      My research asks how people
+      <em>experience and interpret that terrain.</em>
+    </p>
+
+    <div class="quote">
+
+      AI helped me understand the difference between
+      studying a phenomenon and studying
+      how people make sense of that phenomenon.
+
+    </div>
+
+    <p>
+      What I still need to work out:
+      how to recognize participant meanings
+      without imposing my own.
+    </p>
+
+    <p class="large">
+      Thank you.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<button class="arrow arrow-left" onclick="previousSlide()">
+  ←
+</button>
+
+<button class="arrow arrow-right" onclick="nextSlide()">
+  →
+</button>
+
+
+<!-- =========================================================
+     JOURNEY BAR
+========================================================= -->
+
+<div class="journey">
+
+  <div class="journey-inner">
+
+    <div class="journey-item active" onclick="goToSlide(1)">
+      <span class="journey-label">Hook</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(2)">
+      <span class="journey-label">Question</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(3)">
+      <span class="journey-label">Terms</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(4)">
+      <span class="journey-label">Context</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(5)">
+      <span class="journey-label">Public</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(6)">
+      <span class="journey-label">Authority</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(7)">
+      <span class="journey-label">Identity</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(8)">
+      <span class="journey-label">Youth</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(9)">
+      <span class="journey-label">Literature</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(10)">
+      <span class="journey-label">Puzzle</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(11)">
+      <span class="journey-label">Gap</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(12)">
+      <span class="journey-label">Framework</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(13)">
+      <span class="journey-label">Method</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(14)">
+      <span class="journey-label">Contribution</span>
+    </div>
+
+    <div class="journey-item" onclick="goToSlide(15)">
+      <span class="journey-label">Reflection</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let currentSlide = 1;
+const slides = document.querySelectorAll(".slide");
+const journeyItems = document.querySelectorAll(".journey-item");
+
+function showSlide(number) {
+
+  if (number < 1) {
+    number = 1;
+  }
+
+  if (number > slides.length) {
+    number = slides.length;
+  }
+
+  currentSlide = number;
+
+  slides.forEach((slide, index) => {
+
+    slide.classList.remove("active");
+
+    if (index === currentSlide - 1) {
+      slide.classList.add("active");
+    }
+
+  });
+
+  journeyItems.forEach((item, index) => {
+
+    item.classList.remove("active");
+
+    if (index === currentSlide - 1) {
+      item.classList.add("active");
+    }
+
+  });
+
+}
+
+function nextSlide() {
+
+  if (currentSlide < slides.length) {
+    showSlide(currentSlide + 1);
+  }
+
+}
+
+function previousSlide() {
+
+  if (currentSlide > 1) {
+    showSlide(currentSlide - 1);
+  }
+
+}
+
+function goToSlide(number) {
+  showSlide(number);
+}
+
+
+/* Keyboard navigation */
+
+document.addEventListener("keydown", function(event) {
+
+  if (
+    event.key === "ArrowRight" ||
+    event.key === " " ||
+    event.key === "PageDown"
+  ) {
+
+    event.preventDefault();
+    nextSlide();
+
+  }
+
+  if (
+    event.key === "ArrowLeft" ||
+    event.key === "PageUp"
+  ) {
+
+    event.preventDefault();
+    previousSlide();
+
+  }
+
+});
+
+
+/* Mouse click on right/left side */
+
+document.addEventListener("click", function(event) {
+
+  if (
+    event.target.closest(".arrow") ||
+    event.target.closest(".journey")
+  ) {
+    return;
+  }
+
+  if (event.clientX > window.innerWidth * 0.65) {
+    nextSlide();
+  }
+
+  if (event.clientX < window.innerWidth * 0.25) {
+    previousSlide();
+  }
+
+});
+
+</script>
 
 </body>
 </html>
