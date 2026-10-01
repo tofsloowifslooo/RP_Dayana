@@ -101,6 +101,40 @@ p, li {
   max-width: 1000px;
 }
 
+.quote.small {
+  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+  margin: 1.3rem 0;
+}
+
+.cite-by {
+  color: var(--accent);
+  font-size: .95rem;
+  letter-spacing: .05em;
+}
+
+ul.points {
+  max-width: 1000px;
+  padding-left: 1.2rem;
+}
+
+ul.points li {
+  margin-bottom: 1rem;
+}
+
+.cite-slide h3 {
+  margin: 1.1rem 0 .3rem;
+}
+
+.tight, ul.tight li {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+}
+
+.cite-slide .quote.small {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  margin: .6rem 0;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -117,6 +151,24 @@ p, li {
 
 .card p {
   font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+}
+
+.evidence-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 1250px;
+}
+
+.card .evidence {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  border-top: 1px solid var(--line);
+  padding-top: .7rem;
+  margin-top: .8rem;
+}
+
+.card .evidence strong {
+  color: var(--accent);
+  font-weight: 400;
 }
 
 .two-col {
@@ -154,10 +206,8 @@ p, li {
 }
 
 .references-list {
-  font-size: 0.72rem;
-  line-height: 1.28;
-  max-height: 68vh;
-  overflow: hidden;
+  font-size: 0.85rem;
+  line-height: 1.3;
   column-count: 1;
 }
 
@@ -295,7 +345,7 @@ p, li {
   </div>
 
   <p class="muted">
-    English translation: “Dressing entirely in black contradicts the
+    English translation (made with AI): “Dressing entirely in black contradicts the
     worldview of our people, is a thoughtless copying of foreign norms,
     driven by religious fanaticism. We must not break away from our
     spiritual roots and erode our national identity.”
@@ -304,7 +354,7 @@ p, li {
   <p class="source">
     Source: Tengrinews.kz (2024, May 22), “Черные одеяния наш народ никогда
     не носил. А женщины надевали платок только после сватовства — эксперты.”
-    Translation into English is made with AI.
+    The English translation above is made with AI.
   </p>
 </section>
 
@@ -384,145 +434,97 @@ p, li {
   </p>
 </section>
 
-<!-- SLIDE 6 -->
-<section class="slide">
+<!-- LITERATURE REVIEW 1 -->
+<section class="slide cite-slide">
   <div class="eyebrow">LITERATURE REVIEW</div>
 
-  <h2>Islam as everyday life</h2>
+  <h2>Islam as everyday and public life</h2>
 
-  <h3>Omelicheva (2011)</h3>
+  <div class="two-col">
+    <div>
+      <h3>Omelicheva (2011)</h3>
+      <div class="quote small">
+        “Placing emphasis on personal ethics and personal fulfilment as well
+        as having private beliefs in God and searching for true meaning of
+        life follows naturally from a conception of Muslimness in Kazakhstan
+        as a way of life, rather than strict adherence to Islamic laws and
+        prohibitions.”
+      </div>
+      <p class="tight">
+        <strong>Individualization and intimization:</strong> a growing
+        contemporary trend toward the individualization and intimization of
+        Islam, where believers seek personalized ways of practicing faith,
+        personal ethics, spiritual fulfilment, and private, intimate
+        experiences of God.
+      </p>
+    </div>
 
-  <p>
-    Omelicheva shows that contemporary Islam in Kazakhstan can be understood
-    not only as institutional religion but also as an individualized way of
-    life and personal ethical orientation.
-  </p>
-
-  <p>
-    This is useful for my research because contested religious practices may
-    be meaningful to individuals even when they are not simply following an
-    institution.
-  </p>
+    <div>
+      <h3>Malik (2019)</h3>
+      <ul class="points tight">
+        <li>
+          A 37-fold increase in mosques (from 68 in 1991 to 2,516 in 2016).
+        </li>
+        <li>
+          Attendance at daily and Friday congregational prayers (jum’ah) is
+          predominantly driven by young and middle-aged people.
+        </li>
+        <li>
+          <strong>Halal market:</strong> rapid expansion of halal
+          slaughterhouses (over 130) and halal businesses (over 600),
+          creating what Marlene Laruelle terms a “bourgeois Islam”
+          practiced and exhibited by the urban middle class.
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- SLIDE 7 -->
-<section class="slide">
+<!-- LITERATURE REVIEW 2 -->
+<section class="slide cite-slide">
   <div class="eyebrow">LITERATURE REVIEW</div>
 
-  <h2>Islam as public and social life</h2>
-
-  <h3>Malik (2019)</h3>
-
-  <p>
-    Malik examines the public revival of Islam through institutionalisation,
-    including participation in mosques, youth engagement, halal markets,
-    and visible forms of religious practice.
-  </p>
-
-  <p>
-    This suggests that religion cannot always be treated as purely private:
-    religious meanings can become visible and socially negotiated.
-  </p>
-</section>
-
-<!-- SLIDE 8 -->
-<section class="slide">
-  <div class="eyebrow">LITERATURE REVIEW</div>
-
-  <h2>Who defines “traditional Islam”?</h2>
-
-  <h3>Kerim &amp; Kurmanaliyev (2026)</h3>
-
-  <p>
-    The authors examine “Traditional Islam” as a historically formed and
-    institutionally mediated category in Kazakhstan.
-  </p>
-
-  <p>
-    Their discussion connects it with Hanafi jurisprudence, Maturidi
-    theology, local customs, historical development, and state discourse.
-  </p>
-
-  <p class="muted">
-    This helps me treat “traditional Islam” as something that can itself
-    become an object of interpretation and contestation.
-  </p>
-</section>
-
-<!-- SLIDE 9 -->
-<section class="slide">
-  <div class="eyebrow">LITERATURE REVIEW</div>
-
-  <h2>Islam and Kazakh identity</h2>
-
-  <h3>Sikhimbayeva &amp; Sadvokassova (2025)</h3>
-
-  <p>
-    Their research examines the relationship between Islam and
-    ethnonationalism in post-Soviet Kazakhstan.
-  </p>
-
-  <p>
-    They discuss tensions between visible or scriptural forms of piety and
-    ideas of Kazakh national identity, including situations where religious
-    practices may be interpreted as “Arabization.”
-  </p>
-
-  <p>
-    This connects directly to my interest in how young Muslims explain
-    practices that become publicly contested.
-  </p>
-</section>
-
-<!-- SLIDE 9b -->
-<section class="slide">
-  <div class="eyebrow">LITERATURE REVIEW</div>
-
-  <h2>Youth and public religious identity</h2>
+  <h2>Youth and public contestation</h2>
 
   <h3>Bektenova et al. (2025)</h3>
 
-  <p>
-    Bektenova and colleagues examine the formation of Islamic identity in
-    Kazakhstan during religious revival, showing that practicing Muslims
-    are predominantly young.
-  </p>
+  <div class="two-col">
+    <div>
+      <div class="quote small">
+        “Recent studies have indicated an increase in both traditional and
+        non-traditional expressions of religiosity, particularly among
+        younger demographics.”
+      </div>
 
-  <p>
-    They highlight public friction points such as hijab in secular schools,
-    prayer spaces, and debates between “pure” and “traditional” Islam.
-  </p>
+      <div class="quote small">
+        “The issue of hijabs being worn in secular institutions, for
+        instance, has been identified as a contentious topic in Kazakh
+        society, giving rise to heated debates... 57.2% of respondents
+        expressed agreement with the need to organize prayer rooms in public
+        places... [and] more than 33% believe that there should be no
+        restrictions on wearing the hijab in government agencies, schools,
+        and other educational institutions.”
+      </div>
+    </div>
 
-  <p>
-    This connects directly to my focus on young Muslims and on practices
-    that become publicly contested.
-  </p>
-</section>
+    <div>
+      <div class="quote small">
+        “Radical movements exploit the identity crisis, especially among
+        young people, offering a model of a complete Islamic identity that is
+        opposed to the secular state and the ‘corrupted’ tradition that does
+        not fit ‘pure Islam.’”
+      </div>
 
-<!-- SLIDE 9c -->
-<section class="slide">
-  <div class="eyebrow">LITERATURE REVIEW</div>
-
-  <h2>Customs and theological contestation</h2>
-
-  <h3>Kalybekova et al. (2025)</h3>
-
-  <p>
-    Kalybekova and colleagues present official theological positions that
-    defend local life-cycle customs, such as betashar and salem, against
-    reformist accusations of shirk.
-  </p>
-
-  <p>
-    This shows that contestation also takes place inside Islamic
-    interpretation: the same custom can be defended as tradition or
-    criticised as un-Islamic.
-  </p>
-
-  <p>
-    This helps me see why participants should be the ones to say which
-    practices they experience as contested.
-  </p>
+      <div class="quote small">
+        “People could not accept the fact that the radicals maintained a
+        ‘pure religion’... and their denial of the centuries-old Kazakh
+        traditions... such as ‘consecration of the Koran to the spirits and
+        the dead,’ ‘baking shelpek on Friday,’ [and] ‘Salem Salu’ of the
+        newly arrived bride (which commits shirk on the Wahhabi side).”
+        <div class="cite-by">Quoted in Bektenova et al. (2025)</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SLIDE 10 -->
@@ -531,41 +533,49 @@ p, li {
 
   <h2>What does the literature already tell us?</h2>
 
-  <div class="card-grid">
+  <div class="card-grid evidence-grid">
     <div class="card">
       <h3>Omelicheva</h3>
       <p>Islam as personal and everyday meaning.</p>
+      <p class="evidence"><strong>Evidence:</strong> Islam operates as an intimate, everyday “way of life” and personal ethical orientation, expressed through local rituals, household life-cycle ceremonies, and individual spiritual experience rather than strict canonical jurisprudence.</p>
     </div>
 
     <div class="card">
       <h3>Malik</h3>
       <p>Islam as visible public and social life.</p>
+      <p class="evidence"><strong>Evidence:</strong> Re-Islamization produced a “public revitalisation” and “social sacralisation” of Islam, moving faith from a private matter into visible public, social, economic (halal markets), and digital spaces.</p>
     </div>
 
     <div class="card">
       <h3>Kerim &amp; Kurmanaliyev</h3>
       <p>Traditional Islam as historically and institutionally constructed.</p>
+      <p class="evidence"><strong>Evidence:</strong> “Traditional Islam” (Hanafi-Maturidi fused with local custom) is presented as a state-mediated construct and an instrument of symbolic power, used by state-aligned institutions such as SAMK to regulate the religious sphere and define orthodoxy.</p>
     </div>
 
     <div class="card">
       <h3>Sikhimbayeva &amp; Sadvokassova</h3>
       <p>Islamic practice and Kazakh national identity can intersect.</p>
+      <p class="evidence"><strong>Evidence:</strong> Islamic practice and Kazakh national identity are not inherently opposed: religion and ethnonationalism intersect and can form a compatible synthesis within the national framework.</p>
     </div>
 
     <div class="card">
       <h3>Bektenova et al.</h3>
       <p>Youth religiosity and tensions around contemporary religious identity and practice.</p>
+      <p class="evidence"><strong>Evidence:</strong> Young people (ages 18–24) are the largest group among practicing Muslims, yet experience “identity fragmentation” and public friction over visible piety, such as hijab in secular schools and public prayer spaces.</p>
     </div>
 
     <div class="card">
       <h3>Zakhaya et al.</h3>
       <p>Tensions between “traditional” and newer or non-traditional forms of religiosity among young Kazakhs.</p>
+      <p class="evidence"><strong>Evidence:</strong> State-supported “traditional” Kazakh Islam clashes with newer orientations (such as Salafism or new religiosities) adopted by young Kazakhs seeking moral certainty, creating internal rifts and public anxiety.</p>
     </div>
 
     <div class="card">
       <h3>Kalybekova et al.</h3>
       <p>Official theological responses to customs such as betashar that reformist interpretations contest.</p>
+      <p class="evidence"><strong>Evidence:</strong> Official theological arguments defend customary rites such as betashar (the bridal greeting ritual) as vital national values, rebutting reformist claims that they constitute shirk.</p>
     </div>
+
   </div>
 </section>
 
